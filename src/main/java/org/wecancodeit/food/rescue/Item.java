@@ -1,8 +1,11 @@
 package org.wecancodeit.food.rescue;
 
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Item {
@@ -11,7 +14,11 @@ public class Item {
 	@GeneratedValue
 	private long id;
 	private String itemName;
-
+	
+	@ManyToMany(mappedBy="items")
+	private Collection<Recipe> recipes;
+	
+	
 	public Item() {
 
 	}
@@ -49,6 +56,10 @@ public class Item {
 		if (id != other.id)
 			return false;
 		return true;
+	}
+
+	public Collection<Recipe> getRecipes() {
+		return recipes;
 	}
 
 }
