@@ -1,6 +1,7 @@
 package org.wecancodeit.food.rescue;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.junit.Assert.assertFalse;
@@ -30,6 +31,9 @@ public class JPAMappingsTest {
 
 	@Resource
 	private RecipeRepository recipeRepo;
+
+	@Resource
+	private TagRepository tagRepo;
 
 	@Test
 	public void shouldSaveAndLoadAnItem() {
@@ -110,11 +114,46 @@ public class JPAMappingsTest {
 	}
 
 	@Test
+	public void shouldSaveAndLoadATag() {
+		Tag tag = new Tag("Meal");
+		tagRepo.save(tag);
+
+		long tagId = tag.getId();
+
+		entityManager.flush();
+		entityManager.clear();
+
+		Optional<Tag> result = tagRepo.findById(tagId);
+		tag = result.get();
+
+		assertThat(tag.getMeal(), is("Meal"));
+		assertTrue(result.isPresent());
+	}
+
+	@Test
+	public void shouldGenerateTagId() {
+		Tag tag = new Tag("");
+		tagRepo.save(tag);
+
+		long tagId = tag.getId();
+
+		entityManager.flush();
+		entityManager.clear();
+
+		assertThat(tagId, is(greaterThan(0L)));
+	}
+
+	@Test
 	public void shouldSaveAndLoadARecipe() {
 		Item item1 = new Item("bread");
 		Item item2 = new Item("cheese");
+		Tag tag = new Tag("lunch");
 
-		Recipe recipe = new Recipe("Recipe Name", "Instructions", "Image", item1, item2);
+		tagRepo.save(tag);
+		itemRepo.save(item1);
+		itemRepo.save(item2);
+
+		Recipe recipe = new Recipe("Recipe Name", "Instructions", "Image", tag, item1, item2);
 		recipeRepo.save(recipe);
 
 		long recipeId = recipe.getId();
@@ -132,6 +171,49 @@ public class JPAMappingsTest {
 		assertThat(recipe.getInstructions(), is("Instructions"));
 
 		assertThat(recipe.getImage(), is("Image"));
+
 	}
 
+	@Test
+	public void shouldEstablishRecipeToItemRelationship() {
+		Item item = new Item("");
+		itemRepo.save(item);
+
+		Tag tag = new Tag("");
+		tagRepo.save(tag);
+
+		Recipe recipe = new Recipe("Name", "Instructions", "Image", tag, item);
+		recipeRepo.save(recipe);
+		long recipeId = recipe.getId();
+
+		entityManager.flush();
+		entityManager.clear();
+
+		Optional<Recipe> result = recipeRepo.findById(recipeId);
+		recipe = result.get();
+
+		assertThat(recipe.getItems(), contains(item));
+
+	}
+
+	@Test
+	public void shouldEstablishItemToRecipeRelationship() {
+		Item item = new Item("");
+		itemRepo.save(item);
+
+		Tag tag = new Tag("");
+		tagRepo.save(tag);
+
+		Recipe recipe = new Recipe("Name", "Instructions", "Image", tag, item);
+		recipeRepo.save(recipe);
+		long itemId = item.getId();
+
+		entityManager.flush();
+		entityManager.clear();
+
+		Optional<Item> result = itemRepo.findById(itemId);
+		item = result.get();
+
+		assertThat(item.getRecipes(), contains(recipe));
+	}
 }
