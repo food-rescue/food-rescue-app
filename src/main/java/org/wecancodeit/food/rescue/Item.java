@@ -14,11 +14,10 @@ public class Item {
 	@GeneratedValue
 	private long id;
 	private String itemName;
-	
-	@ManyToMany(mappedBy="items")
+
+	@ManyToMany(mappedBy = "items")
 	private Collection<Recipe> recipes;
-	
-	
+
 	public Item() {
 
 	}
