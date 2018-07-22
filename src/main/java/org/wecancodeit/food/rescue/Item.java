@@ -35,6 +35,10 @@ public class Item {
 		return itemName;
 	}
 
+	public Collection<Recipe> getRecipes() {
+		return recipes;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -57,8 +61,5 @@ public class Item {
 		return true;
 	}
 
-	public Collection<Recipe> getRecipes() {
-		return recipes;
-	}
 
 }
