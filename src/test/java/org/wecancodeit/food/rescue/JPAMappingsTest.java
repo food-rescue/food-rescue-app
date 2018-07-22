@@ -216,4 +216,48 @@ public class JPAMappingsTest {
 
 		assertThat(item.getRecipes(), contains(recipe));
 	}
+	
+	@Test
+	public void shouldEstablishRecipeToTagRelationship() {
+		Item item = new Item("");
+		itemRepo.save(item);
+
+		Tag tag = new Tag("");
+		tagRepo.save(tag);
+
+		Recipe recipe = new Recipe("Name", "Instructions", "Image", tag, item);
+		recipeRepo.save(recipe);
+		long recipeId = recipe.getId();
+
+		entityManager.flush();
+		entityManager.clear();
+		
+		Optional<Recipe> result = recipeRepo.findById(recipeId);
+		recipe = result.get();
+
+		assertThat(recipe.getTag(), is(tag));
+	}
+	
+	@Test
+	public void shouldEstablishTagToRecipeRelationship() {
+		Item item = new Item("");
+		itemRepo.save(item);
+
+		Tag tag = new Tag("");
+		tagRepo.save(tag);
+
+		Recipe recipe1 = new Recipe("Name1", "Instructions", "Image", tag, item);
+		Recipe recipe2 = new Recipe("Name2", "Instructions", "Image", tag, item);
+		recipeRepo.save(recipe1);
+		recipeRepo.save(recipe2);
+		long tagId = tag.getId();
+
+		entityManager.flush();
+		entityManager.clear();
+		
+		Optional<Tag> result = tagRepo.findById(tagId);
+		tag = result.get();
+
+		assertThat(tag.getRecipes(), containsInAnyOrder(recipe1, recipe2));
+	}
 }

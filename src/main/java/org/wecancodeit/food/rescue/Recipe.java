@@ -7,6 +7,7 @@ import java.util.HashSet;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
@@ -16,19 +17,24 @@ public class Recipe {
 	@Id
 	@GeneratedValue
 	private long id;
+	
 	private String recipeName;
+	@Lob
 	private String instructions;
 	private String imagePath;
 
 	@ManyToMany
 	private Collection<Item> items;
+	
+	@ManyToOne
+	private Tag tag;
 
 	public Recipe(String recipeName, String instructions, String imagePath, Tag tag, Item... items) {
 		this.recipeName = recipeName;
 		this.instructions = instructions;
 		this.imagePath = imagePath;
+		this.tag = tag;
 		this.items = new HashSet<>(Arrays.asList(items));
-
 	}
 
 	public Recipe() {
@@ -55,6 +61,14 @@ public class Recipe {
 		return imagePath;
 	}
 
+	public Collection<Item> getItems() {
+		return items;
+	}
+
+	public Tag getTag() {
+		return tag;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -77,8 +91,5 @@ public class Recipe {
 		return true;
 	}
 
-	public Collection<Item> getItems() {
-		return items;
-	}
 
 }
