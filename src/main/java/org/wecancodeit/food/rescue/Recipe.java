@@ -10,8 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
-
-
 @Entity
 public class Recipe {
 
@@ -22,16 +20,14 @@ public class Recipe {
 	private String instructions;
 	private String imagePath;
 
-@ManyToMany
-private Collection<Item> items; 
+	@ManyToMany
+	private Collection<Item> items;
 
 	public Recipe(String recipeName, String instructions, String imagePath, Tag tag, Item... items) {
 		this.recipeName = recipeName;
 		this.instructions = instructions;
 		this.imagePath = imagePath;
 		this.items = new HashSet<>(Arrays.asList(items));
-	
-	
 
 	}
 
@@ -82,9 +78,7 @@ private Collection<Item> items;
 	}
 
 	public Collection<Item> getItems() {
-		return items; 
+		return items;
 	}
-
-
 
 }
