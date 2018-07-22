@@ -45,6 +45,14 @@ public class FoodRescuePopulator implements CommandLineRunner {
 		Recipe croutons = new Recipe("Croutons", "Instructions", "/images/bread.jpg", snack, bread);
 		recipeRepo.save(croutons);
 		
+		Recipe grilledCheese = new Recipe("Grilled Cheese", "Instructions", "/images/bread.jpg", lunch, bread, cheese);
+		recipeRepo.save(grilledCheese);
+		
+		Recipe scrambledEggs = new Recipe("Scrambled Eggs", "Instructions", "/images/bread.jpg", breakfast, eggs, cheese);
+		recipeRepo.save(scrambledEggs);
+		
+		Recipe tacos = new Recipe("Tacos", "Instructions", "/images/bread.jpg", dinner, groundBeef, tortillas);
+		recipeRepo.save(tacos);
 	}
 
 }
