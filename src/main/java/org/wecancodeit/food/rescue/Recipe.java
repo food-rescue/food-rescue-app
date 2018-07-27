@@ -11,6 +11,8 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Recipe {
 
@@ -23,9 +25,11 @@ public class Recipe {
 	private String instructions;
 	private String imagePath;
 
+	@JsonIgnore
 	@ManyToMany
 	private Collection<Item> items;
 	
+	@JsonIgnore
 	@ManyToOne
 	private Tag tag;
 

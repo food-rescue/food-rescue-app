@@ -17,6 +17,9 @@ public class FoodRescuePopulator implements CommandLineRunner {
 	@Resource
 	private TagRepository tagRepo;
 	
+	@Resource
+	private InventoryRepository inventoryRepo;
+	
 	@Override
 	public void run(String... args) throws Exception {
 		
@@ -53,6 +56,15 @@ public class FoodRescuePopulator implements CommandLineRunner {
 		
 		Recipe tacos = new Recipe("Tacos", "Instructions", "/images/bread.jpg", dinner, groundBeef, tortillas);
 		recipeRepo.save(tacos);
+		
+		InventoryItem popcorn = new InventoryItem("Popcorn");
+		InventoryItem butter = new InventoryItem("Butter");
+		InventoryItem bread1 = new InventoryItem("Bread");
+		InventoryItem cheese1 = new InventoryItem("Cheese");
+		inventoryRepo.save(popcorn);
+		inventoryRepo.save(butter);
+		inventoryRepo.save(bread1);
+		inventoryRepo.save(cheese1);
 	}
 
 }

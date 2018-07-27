@@ -1,45 +1,31 @@
 package org.wecancodeit.food.rescue;
 
-import java.util.Collection;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.persistence.ManyToMany;
 
 @Entity
-public class Tag {
-
+public class InventoryItem {
+	
 	@Id
 	@GeneratedValue
 	private long id;
-
-	private String meal;
-
-	@JsonIgnore
-	@OneToMany(mappedBy = "tag")
-	private Collection<Recipe> recipes;
-
-	public Tag(String meal) {
-		this.meal = meal;
+	private String inventoryItemName;
+	
+	public InventoryItem() {
 	}
-
-	public Tag() {
-
+	
+	public InventoryItem(String inventoryItemName) {
+		this.inventoryItemName = inventoryItemName;
 	}
-
+	
 	public long getId() {
 		return id;
 	}
 
-	public String getMeal() {
-		return meal;
-	}
-
-	public Collection<Recipe> getRecipes() {
-		return recipes;
+	public String getInventoryItemName() {
+		return inventoryItemName;
 	}
 
 	@Override
@@ -58,10 +44,11 @@ public class Tag {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Tag other = (Tag) obj;
+		InventoryItem other = (InventoryItem) obj;
 		if (id != other.id)
 			return false;
 		return true;
 	}
+	
 
 }

@@ -47,6 +47,15 @@ public class FoodRescueControllerTest {
 	private Recipe recipe2;
 	
 	@Mock
+	private InventoryRepository inventoryRepo;
+	
+	@Mock
+	private InventoryItem inventoryItem1;
+	
+	@Mock
+	private InventoryItem inventoryItem2;
+	
+	@Mock
 	private Model model;
 	
 	@Before
@@ -106,6 +115,24 @@ public class FoodRescueControllerTest {
 		underTest.findAllTags(model);
 		
 		verify(model).addAttribute("tagsModel", allTags);
+	}
+	
+	@Test
+	public void shouldAddSingleInventoryItemToModel() throws InventoryItemNotFoundException {
+		long inventoryItem1Id = 1L;
+		when(inventoryRepo.findById(inventoryItem1Id)).thenReturn(Optional.of(inventoryItem1));
+		underTest.findOneInventoryItem(inventoryItem1Id, model);
+		
+		verify(model).addAttribute("inventoryItemsModel", inventoryItem1);
+	}
+	
+	@Test
+	public void shouldAddAllInventoryItemsToModel() {
+		Collection<InventoryItem> allInventoryItems = Arrays.asList(inventoryItem1, inventoryItem2);
+		when(inventoryRepo.findAll()).thenReturn(allInventoryItems);
+		underTest.findAllInventoryItems(model);
+		
+		verify(model).addAttribute("inventoryItemsModel", allInventoryItems);
 	}
 	
 }

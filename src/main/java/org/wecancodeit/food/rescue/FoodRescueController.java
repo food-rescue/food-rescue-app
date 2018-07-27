@@ -1,5 +1,9 @@
 package org.wecancodeit.food.rescue;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Optional;
 
 import javax.annotation.Resource;
@@ -20,6 +24,9 @@ public class FoodRescueController {
 
 	@Resource
 	TagRepository tagRepo;
+
+	@Resource
+	InventoryRepository inventoryRepo;
 
 	@RequestMapping("/home")
 	public String home() {
@@ -67,13 +74,65 @@ public class FoodRescueController {
 			return "tag";
 		}
 		throw new TagNotFoundException();
-		
+
 	}
 
 	@RequestMapping("/show-tags")
 	public String findAllTags(Model model) {
 		model.addAttribute("tagsModel", tagRepo.findAll());
-		return "tags";		
+		return "tags";
 	}
 
+	@RequestMapping("/inventoryItem")
+	public String findOneInventoryItem(@RequestParam(value = "id") long inventoryItemId, Model model)
+			throws InventoryItemNotFoundException {
+		Optional<InventoryItem> inventoryItem = inventoryRepo.findById(inventoryItemId);
+		if (inventoryItem.isPresent()) {
+			model.addAttribute("inventoryItemsModel", inventoryItem.get());
+			return "inventoryItem";
+		}
+		throw new InventoryItemNotFoundException();
+
+	}
+
+	@RequestMapping("/show-inventory-items")
+	public String findAllInventoryItems(Model model) {
+		model.addAttribute("inventoryItemsModel", inventoryRepo.findAll());
+		return "inventoryItems";
+	}
+
+	@RequestMapping("/add-inventory-item")
+	public String addItem(String itemName, String inventoryItemName) {
+		Iterable<Item> items = itemRepo.findAll();
+
+		for (Item item : items) {
+			itemName = item.getItemName();
+			if(itemName.equals(inventoryItemName)) {
+				InventoryItem inventoryItem = new InventoryItem(inventoryItemName);
+				inventoryRepo.save(inventoryItem);
+			}
+		}
+		return "redirect:/show-inventory-items";
+	}
+	
+	@RequestMapping("/find-recipes")
+	public String findRecipes(Model model) {
+		Iterable<InventoryItem> inventoryItems = inventoryRepo.findAll();
+		Iterable<Recipe> recipes = recipeRepo.findAll();
+		Collection<Recipe> matchedRecipes = new HashSet<Recipe>();
+		
+		for(InventoryItem inventoryItem: inventoryItems) {
+			for(Recipe recipe: recipes) {
+				Collection<Item> recipeItems = recipe.getItems();
+				for(Item item: recipeItems) {
+					if(inventoryItem.getInventoryItemName().equals(item.getItemName())) {
+						matchedRecipes.add(recipe);
+					}
+				}
+			}
+		}
+		model.addAttribute("recipesModel", matchedRecipes);
+		
+		return "find-recipes";
+	}
 }

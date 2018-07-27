@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>A Single Inventory Item</title>
+</head>
+<body>
+
+	<div th:each="inventoryItem: ${inventoryItemsModel}">
+		<h2 th:text="${inventoryItem.inventoryItemName}"></h2>
+
+	</div>
+
+<a href="http://localhost:8080/show-inventory-items">Back to Inventory Items View</a>
+
+
+</body>
+</html>
