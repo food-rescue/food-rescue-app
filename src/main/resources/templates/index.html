@@ -1,29 +1,55 @@
 <!DOCTYPE html>
 <html>
-<head>
-<link rel="stylesheet" type="text/css" href="/css/indexstyles.css">
-<link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300%7CRoboto" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<title>Food Rescue</title>
 
+<head>
+  <link rel="stylesheet" type="text/css" href="/css/indexstyles.css">
+  <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300%7CRoboto" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<title>Food Rescue</title>
 </head>
+
 <body>
+
 	<div class="grid-container">
-  		<header class="grid-item header" > 
+
+  	<header class="grid-item header" > 
   		Food<img class = "logo" img src="/images/Logo.jpg"></img>Rescue
-  		</header>
-  		<div class="grid-item about">
-  			<h1>Don't throw out that aging food!</h1>
-  			<h2>blah blah blah</h2>
-  		</div>
- 		<div class="grid-item ingredients">
- 			<h1>Food Inventory</h1>
- 		</div>
+  	</header>
+
+  	<div class="grid-item about">
+  		<h1>Don't throw out that aging food!</h1>
+  		<h2>blah blah blah</h2>
+  	</div>
+
+ 	<div class="grid-item inventory">
+ 		<h1>Food Inventory</h1>
+      
+        <section class="add-food">
+          <h2>Enter your food items here:</h2>
+          <input type="text"/>
+          <button>Add Food</button> 
+        </section>
+
+        <section class="food-list">
+          <h2>Food on-hand:</h2>  
+       
+          <ul>
+            
+
+          </ul>
+        </section>
+
+ 	</div>
+
  		<footer class="grid-item footer">&copyFlexCode2018 <a href="https://github.com/food-rescue/food-rescue-app" class="fa fa-github-square"></a>
  		</footer>
+
 	</div> <!-- container -->
 
- 
+  <script src = "./js/ajax-requests.js"></script>
+
 </body>
 </html>
+
