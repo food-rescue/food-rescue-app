@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.thymeleaf.org">
+<head>
+	<title>All Inventory Items</title>
+</head>
+<body>
+	<h1>All Inventory Items</h1>
+
+	<div th:each="inventoryItem: ${inventoryItemsModel}">
+		<h2>
+			<a th:href="@{/inventoryItem(id=${inventoryItem.id})}" th:text="${inventoryItem.inventoryItemName}"></a>
+		</h2>
+	</div>
+
+	<form method="POST">
+		<div>
+	  		<label>Enter Item Name:</label>
+	  		<input type="text" name="inventoryItemName" />
+	  	</div>
+	  
+	  	<div>
+	  		<button th:formaction="@{add-inventory-item}"> add inventory item</button>
+	  	</div>
+	  
+	</form>
+
+	<form method="POST">
+	  	<div>
+	  		<button th:formaction="@{/find-recipes}"> find recipes</button>
+	  	</div>
+	  
+	</form>
+
+</body>
+</html>

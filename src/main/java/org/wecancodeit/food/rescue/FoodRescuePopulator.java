@@ -17,6 +17,9 @@ public class FoodRescuePopulator implements CommandLineRunner {
 	@Resource
 	private TagRepository tagRepo;
 	
+	@Resource
+	private InventoryRepository inventoryRepo;
+	
 	@Override
 	public void run(String... args) throws Exception {
 		
@@ -53,6 +56,15 @@ public class FoodRescuePopulator implements CommandLineRunner {
 		tagRepo.save(dinner);
 		tagRepo.save(lunch);
 		tagRepo.save(snack);
+    
+    InventoryItem popcorn = new InventoryItem("Popcorn");
+		InventoryItem butter = new InventoryItem("Butter");
+		InventoryItem bread1 = new InventoryItem("Bread");
+		InventoryItem cheese1 = new InventoryItem("Cheese");
+		inventoryRepo.save(popcorn);
+		inventoryRepo.save(butter);
+		inventoryRepo.save(bread1);
+		inventoryRepo.save(cheese1);
 		
 		Recipe avocadoToast = new Recipe("Strawberry Balsamic Avocado Toast", "Toss sliced strawberries with a drizzle of balsamic vinegar, then pile on top of your avocado toast! The unexpected combination of strawberries and avocados works really well, especially with the rich tartness of balsamic vinegar.", 
 				"/images/bread.jpg", breakfast, avocado, bread);
@@ -79,7 +91,7 @@ public class FoodRescuePopulator implements CommandLineRunner {
 				"4. *Tip: Turn your oven to the \"warm\" function and place finished waffles on a baking sheet in the oven to keep warm which the rest are cooking.", "/images/bread.jpg", breakfast, potato, eggs, cheese);
 		
 		Recipe lettuceWrap = new Recipe("Chicken, Bacon, Avocado Ranch Lettuce Wrap", "1. Start by seasoning the chicken with salt and pepper, then grill them (you could do stovetop as well). " + 
-				"2. Meanwhile, bake your bacon on a foil lined cookie sheet at 420°. Start checking for doneness at 15 minutes but it will likely take closer to 20. " + 
+				"2. Meanwhile, bake your bacon on a foil lined cookie sheet at 420Â°. Start checking for doneness at 15 minutes but it will likely take closer to 20. " + 
 				"3. I had used ends and pieces so they came already chopped, but if you use regular slab bacon crumble it up after it's cooked. " + 
 				"4. When the chicken is done, cut it up into bite sized pieces and mix the cilantro in. " + 
 				"5. Wash the lettuce, and carefully remove each leaf so that it creates a boat, or cup to put the yumminess in. " + 
@@ -89,7 +101,7 @@ public class FoodRescuePopulator implements CommandLineRunner {
 		
 		Recipe scrambledEggs = new Recipe("Scrambled Eggs", "1. Beat eggs, milk, salt and pepper in medium bowl until blended. " + 
 				"2. Heat butter in large nonstick skillet over medium heat until hot. Pour in egg mixture. As eggs begin to set, gently pull the eggs across the pan with a spatula, forming large soft curds. " + 
-				"3.Continue cooking – pulling, lifting and folding eggs – until thickened and no visible liquid egg remains. Do not stir constantly. Remove from heat. Serve immediately.", 
+				"3.Continue cooking â€“ pulling, lifting and folding eggs â€“ until thickened and no visible liquid egg remains. Do not stir constantly. Remove from heat. Serve immediately.", 
 				"/images/bread.jpg", breakfast, eggs, cheese);
 		recipeRepo.save(scrambledEggs);
 		
@@ -105,9 +117,9 @@ public class FoodRescuePopulator implements CommandLineRunner {
 				"9. Top burgers with salsa. Serve with or without bun.", "/images/bread.jpg", dinner, avocado, salmon);
 		recipeRepo.save(salmonBurger);
 		
-		Recipe tacos = new Recipe("Tacos", "1. Heat oven to 250°F. In medium skillet, brown ground beef and onion over medium heat for 8 to 10 minutes or until beef is thoroughly cooked, stirring frequently. Drain. " + 
+		Recipe tacos = new Recipe("Tacos", "1. Heat oven to 250Â°F. In medium skillet, brown ground beef and onion over medium heat for 8 to 10 minutes or until beef is thoroughly cooked, stirring frequently. Drain. " + 
 				"2. Stir in chili powder, salt, garlic powder and tomato sauce. Reduce heat to low; cover and simmer 10 minutes. " + 
-				"3. Meanwhile, place taco shells on ungreased cookie sheet. Heat at 250°F. for 5 minutes. " + 
+				"3. Meanwhile, place taco shells on ungreased cookie sheet. Heat at 250Â°F. for 5 minutes. " + 
 				"4. To assemble tacos, layer beef mixture, cheese, lettuce and tomatoes in each taco shell. Serve with salsa; top with sour cream.", "/images/bread.jpg", dinner, groundBeef, tortillas);
 		recipeRepo.save(tacos);
 		
@@ -119,7 +131,7 @@ public class FoodRescuePopulator implements CommandLineRunner {
 				"6. Continue cooking, stirring frequently until the sauce reaches a simmer and thickens. " + 
 				"7. Remove from heat, and serve immediately with cooked white rice and steamed broccoli, garnished with thinly-sliced green onions if desired. " + 
 				"8. Drizzle the remaining teriyaki sauce over if desired. " + 
-				"9. * The magic is not over cooking the chicken during the sautéing process. It gives the glaze mixture more time to cook down. Keep stiring the chicken while its glazing. It will help it not to burn.",
+				"9. * The magic is not over cooking the chicken during the sautÃ©ing process. It gives the glaze mixture more time to cook down. Keep stiring the chicken while its glazing. It will help it not to burn.",
 				"/images/bread.jpg", dinner, chickenBreast); 
 		recipeRepo.save(teriyakiChicken);
 	}

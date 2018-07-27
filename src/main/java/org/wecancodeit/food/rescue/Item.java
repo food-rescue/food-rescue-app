@@ -1,11 +1,14 @@
 package org.wecancodeit.food.rescue;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Item {
@@ -15,6 +18,7 @@ public class Item {
 	private long id;
 	private String itemName;
 
+	@JsonIgnore
 	@ManyToMany(mappedBy = "items")
 	private Collection<Recipe> recipes;
 

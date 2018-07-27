@@ -35,6 +35,9 @@ public class FoodRescueControllerMockMvcTest {
 	@MockBean
 	private TagRepository tagRepo;
 	
+	@MockBean
+	private InventoryRepository inventoryRepo;
+	
 	@Mock
 	private Item item;
 	
@@ -43,6 +46,9 @@ public class FoodRescueControllerMockMvcTest {
 	
 	@Mock
 	private Tag tag;
+	
+	@Mock
+	private InventoryItem inventoryItem;
 	
 	@Test
 	public void shouldRouteToSingleItemView() throws Exception {
@@ -114,6 +120,30 @@ public class FoodRescueControllerMockMvcTest {
 	@Test
 	public void shouldBeOkForAllTags() throws Exception {
 		mvc.perform(get("/show-tags")).andExpect(status().isOk());
+	}
+	
+	@Test
+	public void shouldRouteToSingleInventoryItemView() throws Exception {
+		long inventoryItemId = 1;
+		when(inventoryRepo.findById(inventoryItemId)).thenReturn(Optional.of(inventoryItem));
+		mvc.perform(get("/inventoryItem?id=1")).andExpect(view().name(is("inventoryItem")));
+	}
+	
+	@Test
+	public void shouldBeOkForSingleInventoryItem() throws Exception {
+		long inventoryItemId = 1;
+		when(inventoryRepo.findById(inventoryItemId)).thenReturn(Optional.of(inventoryItem));
+		mvc.perform(get("/inventoryItem?id=1")).andExpect(status().isOk());
+	}
+	
+	@Test
+	public void shouldRouteToAllInventoryItemsView() throws Exception {
+		mvc.perform(get("/show-inventory-items")).andExpect(view().name(is("inventoryItems")));
+	}
+	
+	@Test
+	public void shouldBeOkForAllInventoryItems() throws Exception {
+		mvc.perform(get("/show-inventory-items")).andExpect(status().isOk());
 	}
 
 }
