@@ -7,3 +7,11 @@ xhr.onreadystatechange = function(){
 		foodList.innerHTML = res
 	}
 }
+
+
+addFoodButton.addEventListener('click', function() {
+	postFoodList(addFoodInput.value)
+	addFoodInput.value = ""
+})
+
+//add html submit button to partial to send list to recipe repository
