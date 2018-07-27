@@ -56,12 +56,9 @@ h2 {
 	background-color: #f7ef6a;
 	align-items: center;
 	flex-direction: column;
-	
-	
-
 }
 
-.ingredients {
+.inventory {
 	display: flex;
 	justify-content:  center;
 	background-color: #465c8b;
@@ -92,4 +89,4 @@ footer {
 	background: #000;
 	color: white;
 	margin: .1em;
-}	
+}
