@@ -36,8 +36,7 @@
           <h2>Food on-hand:</h2>  
        
           <ul>
-            
-
+            <li th:if="${inventoryModel.size() !=0}" th:each="inventoryItem: ${inventoryModel}">
           </ul>
         </section>
 

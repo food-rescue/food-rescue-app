@@ -1,8 +1,6 @@
 package org.wecancodeit.food.rescue;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Optional;
 
@@ -10,7 +8,9 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -135,4 +135,17 @@ public class FoodRescueController {
 		
 		return "find-recipes";
 	}
+	
+	//Dynamically add food inventory to home page with Ajax
+		@RequestMapping(path = "/index/food-lists/{inventoryItemName}", method = RequestMethod.POST)//
+		public String AddTag(@PathVariable String inventoryItemName, Model model) {
+			InventoryItem foodToAdd = inventoryRepo.findByInventoryItemName(inventoryItemName);
+			if(foodToAdd == null) {
+				foodToAdd = new InventoryItem(inventoryItemName);
+				inventoryRepo.save(foodToAdd);
+			}
+			model.addAttribute("indexModel", inventoryRepo.findAll());		
+			return "partials/food-list";
+		}
+
 }
