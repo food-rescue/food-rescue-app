@@ -4,12 +4,20 @@
 	<title>All Recipes</title>
 </head>
 <body>
-	<h1>All Recipes</h1>
+	<h1>Recipes</h1>
 
+	<h2>Recipes you have all the ingredients for</h2>
+		<div th:each="recipe: ${completeRecipesModel}">
+			<h3>
+				<a th:href="@{/recipe(id=${recipe.id})}" th:text="${recipe.recipeName}"></a>
+			</h3>
+		</div>
+
+	<h2>Recipes with at least 1 match</h2>
 	<div th:each="recipe: ${recipesModel}">
-		<h2>
+		<h3>
 			<a th:href="@{/recipe(id=${recipe.id})}" th:text="${recipe.recipeName}"></a>
-		</h2>
+		</h3>
 	</div>
 
 </body>
