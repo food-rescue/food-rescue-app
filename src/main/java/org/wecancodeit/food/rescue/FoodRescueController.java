@@ -136,7 +136,7 @@ public class FoodRescueController {
 		return "find-recipes";
 	}
 	
-	//Dynamically add food inventory to home page with Ajax
+	//Add food inventory to home page with Ajax
 		@RequestMapping(path = "/index/add-food/{inventoryItemName}", method = RequestMethod.POST)//
 		public String AddInventoryItem(@PathVariable String inventoryItemName, Model model) {
 			InventoryItem foodToAdd = inventoryRepo.findByInventoryItemName(inventoryItemName);
