@@ -56,15 +56,6 @@ public class FoodRescuePopulator implements CommandLineRunner {
 		tagRepo.save(dinner);
 		tagRepo.save(lunch);
 		tagRepo.save(snack);
-    
-    InventoryItem popcorn = new InventoryItem("Popcorn");
-		InventoryItem butter = new InventoryItem("Butter");
-		InventoryItem bread1 = new InventoryItem("Bread");
-		InventoryItem cheese1 = new InventoryItem("Cheese");
-		inventoryRepo.save(popcorn);
-		inventoryRepo.save(butter);
-		inventoryRepo.save(bread1);
-		inventoryRepo.save(cheese1);
 		
 		Recipe avocadoToast = new Recipe("Strawberry Balsamic Avocado Toast", "Toss sliced strawberries with a drizzle of balsamic vinegar, then pile on top of your avocado toast! The unexpected combination of strawberries and avocados works really well, especially with the rich tartness of balsamic vinegar.", 
 				"/images/toast.jpg", breakfast, avocado, bread);
@@ -80,6 +71,7 @@ public class FoodRescuePopulator implements CommandLineRunner {
 				"2. Add the banana slices and cook for 4 minutes until the bottoms start to caramelize and turn golden brown. Adjust the temperature and cooking time as needed so that they don't burn. " + 
 				"3. Flip all the banana pieces and cook for another 4 minutes until the other side is golden brown. " + 
 				"4. Serve immediately over ice cream, yogurt, pancakes or french toast.", "/images/bananas.jpg", snack, bananas);
+		recipeRepo.save(friedBananas);
 		
 		Recipe grilledCheese = new Recipe("Grilled Cheese", "Preheat skillet over medium heat. Generously butter one side of a slice of bread. Place bread butter-side-down onto skillet bottom and add 1 slice of cheese. Butter a second slice of bread on one side and place butter-side-up on top of sandwich. Grill until lightly browned and flip over; continue grilling until cheese is melted. Repeat with remaining 2 slices of bread, butter and slice of cheese.",
 				"/images/grilled.jpg", lunch, bread, cheese);
@@ -89,6 +81,7 @@ public class FoodRescuePopulator implements CommandLineRunner {
 				"2. In a medium-sized mixing bowl, whisk together eggs and milk. Stir in potatoes, cheese, chives and season with 1/2 teaspoon salt and 1/4 teaspoon pepper. " + 
 				"3. Depending on the size of your waffle iron, scoop a layer of the potato mixture onto the surface (for the round waffle maker, I used about 1 cup of the mixture). Spread to about 1/2 inch from the edges and close the waffle iron. Cook for about 5 minutes, checking every few minutes to avoid burning. When the entire waffle is golden brown in color, carefully remove from the waffle iron with a fork or tongs. " + 
 				"4. *Tip: Turn your oven to the \"warm\" function and place finished waffles on a baking sheet in the oven to keep warm which the rest are cooking.", "/images/waffles.jpg", breakfast, potato, eggs, cheese);
+		recipeRepo.save(hashbrownWaffle);
 		
 		Recipe lettuceWrap = new Recipe("Chicken, Bacon, Avocado Ranch Lettuce Wrap", "1. Start by seasoning the chicken with salt and pepper, then grill them (you could do stovetop as well). " + 
 				"2. Meanwhile, bake your bacon on a foil lined cookie sheet at 420°. Start checking for doneness at 15 minutes but it will likely take closer to 20. " + 
@@ -98,6 +91,7 @@ public class FoodRescuePopulator implements CommandLineRunner {
 				"6. Now set all your ingredients out so people can build their own lettuce wrap. Squeeze the half a lime over the avocado, tomato, and chicken. " + 
 				"7. Take the lettuce leaf, fill it with the bacon, avocado, tomato, and chicken. Then drizzle with ranch. " + 
 				"8. Eat it like a taco and enjoy!", "/images/chicken.jpg", lunch, lettuce, chickenBreast, avocado);
+		recipeRepo.save(lettuceWrap);
 		
 		Recipe scrambledEggs = new Recipe("Scrambled Eggs", "1. Beat eggs, milk, salt and pepper in medium bowl until blended. " + 
 				"2. Heat butter in large nonstick skillet over medium heat until hot. Pour in egg mixture. As eggs begin to set, gently pull the eggs across the pan with a spatula, forming large soft curds. " + 

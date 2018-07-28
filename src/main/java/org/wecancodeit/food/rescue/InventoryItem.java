@@ -3,23 +3,22 @@ package org.wecancodeit.food.rescue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 
 @Entity
 public class InventoryItem {
-	
+
 	@Id
 	@GeneratedValue
 	private long id;
 	private String inventoryItemName;
-	
+
 	public InventoryItem() {
 	}
-	
+
 	public InventoryItem(String inventoryItemName) {
 		this.inventoryItemName = inventoryItemName;
 	}
-	
+
 	public long getId() {
 		return id;
 	}
@@ -49,6 +48,5 @@ public class InventoryItem {
 			return false;
 		return true;
 	}
-	
 
 }

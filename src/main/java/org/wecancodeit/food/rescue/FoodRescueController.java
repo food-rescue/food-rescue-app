@@ -107,32 +107,52 @@ public class FoodRescueController {
 
 		for (Item item : items) {
 			itemName = item.getItemName();
-			if(itemName.equals(inventoryItemName)) {
+			if (itemName.equals(inventoryItemName)) {
 				InventoryItem inventoryItem = new InventoryItem(inventoryItemName);
 				inventoryRepo.save(inventoryItem);
 			}
 		}
 		return "redirect:/show-inventory-items";
 	}
-	
+
 	@RequestMapping("/find-recipes")
 	public String findRecipes(Model model) {
 		Iterable<InventoryItem> inventoryItems = inventoryRepo.findAll();
 		Iterable<Recipe> recipes = recipeRepo.findAll();
 		Collection<Recipe> matchedRecipes = new HashSet<Recipe>();
-		
-		for(InventoryItem inventoryItem: inventoryItems) {
-			for(Recipe recipe: recipes) {
+
+		Collection<Item> matchedItems = new HashSet<Item>();
+		Collection<Recipe> completeRecipes = new HashSet<Recipe>();
+		for (InventoryItem inventoryItem : inventoryItems) {
+			for (Recipe recipe : recipes) {
 				Collection<Item> recipeItems = recipe.getItems();
-				for(Item item: recipeItems) {
-					if(inventoryItem.getInventoryItemName().equals(item.getItemName())) {
+				for (Item item : recipeItems) {
+					if (inventoryItem.getInventoryItemName().equals(item.getItemName())) {
+						matchedItems.add(item);
+					}
+				}
+
+				int sizeDifference = recipe.getItems().size() - matchedItems.size();
+				if (sizeDifference == 0) {
+					completeRecipes.add(recipe);
+				}
+				matchedItems.clear();
+			}
+		}
+		model.addAttribute("completeRecipesModel", completeRecipes);
+
+		for (InventoryItem inventoryItem : inventoryItems) {
+			for (Recipe recipe : recipes) {
+				Collection<Item> recipeItems = recipe.getItems();
+				for (Item item : recipeItems) {
+					if (inventoryItem.getInventoryItemName().equals(item.getItemName())) {
 						matchedRecipes.add(recipe);
 					}
 				}
 			}
 		}
 		model.addAttribute("recipesModel", matchedRecipes);
-		
+
 		return "find-recipes";
 	}
 }

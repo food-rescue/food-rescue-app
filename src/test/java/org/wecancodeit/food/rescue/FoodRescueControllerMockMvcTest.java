@@ -18,57 +18,56 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-
 @RunWith(SpringRunner.class)
 @WebMvcTest(FoodRescueController.class)
 public class FoodRescueControllerMockMvcTest {
-	
+
 	@Resource
 	private MockMvc mvc;
-	
+
 	@MockBean
 	private ItemRepository itemRepo;
-	
+
 	@MockBean
 	private RecipeRepository recipeRepo;
-	
+
 	@MockBean
 	private TagRepository tagRepo;
-	
+
 	@MockBean
 	private InventoryRepository inventoryRepo;
-	
+
 	@Mock
 	private Item item;
-	
+
 	@Mock
 	private Recipe recipe;
-	
+
 	@Mock
 	private Tag tag;
-	
+
 	@Mock
 	private InventoryItem inventoryItem;
-	
+
 	@Test
 	public void shouldRouteToSingleItemView() throws Exception {
 		long itemId = 1;
 		when(itemRepo.findById(itemId)).thenReturn(Optional.of(item));
 		mvc.perform(get("/item?id=1")).andExpect(view().name(is("item")));
 	}
-	
+
 	@Test
 	public void shouldBeOkForSingleItem() throws Exception {
 		long itemId = 1;
 		when(itemRepo.findById(itemId)).thenReturn(Optional.of(item));
 		mvc.perform(get("/item?id=1")).andExpect(status().isOk());
 	}
-	
+
 	@Test
 	public void shouldRouteToAllItemsView() throws Exception {
 		mvc.perform(get("/show-items")).andExpect(view().name(is("items")));
 	}
-	
+
 	@Test
 	public void shouldBeOkForAllItems() throws Exception {
 		mvc.perform(get("/show-items")).andExpect(status().isOk());
@@ -80,67 +79,67 @@ public class FoodRescueControllerMockMvcTest {
 		when(recipeRepo.findById(recipeId)).thenReturn(Optional.of(recipe));
 		mvc.perform(get("/recipe?id=1")).andExpect(view().name(is("recipe")));
 	}
-	
+
 	@Test
 	public void shouldBeOkForSingleRecipe() throws Exception {
 		long recipeId = 1;
 		when(recipeRepo.findById(recipeId)).thenReturn(Optional.of(recipe));
 		mvc.perform(get("/recipe?id=1")).andExpect(status().isOk());
 	}
-	
+
 	@Test
 	public void shouldRouteToAllRecipesView() throws Exception {
 		mvc.perform(get("/show-recipes")).andExpect(view().name(is("recipes")));
 	}
-	
+
 	@Test
 	public void shouldBeOkForAllRecipes() throws Exception {
 		mvc.perform(get("/show-recipes")).andExpect(status().isOk());
 	}
-	
+
 	@Test
 	public void shouldRouteToSingleTagView() throws Exception {
 		long tagId = 1;
 		when(tagRepo.findById(tagId)).thenReturn(Optional.of(tag));
 		mvc.perform(get("/tag?id=1")).andExpect(view().name(is("tag")));
 	}
-	
+
 	@Test
 	public void shouldBeOkForSingleTag() throws Exception {
 		long tagId = 1;
 		when(tagRepo.findById(tagId)).thenReturn(Optional.of(tag));
 		mvc.perform(get("/tag?id=1")).andExpect(status().isOk());
 	}
-	
+
 	@Test
 	public void shouldRouteToAllTagsView() throws Exception {
 		mvc.perform(get("/show-tags")).andExpect(view().name(is("tags")));
 	}
-	
+
 	@Test
 	public void shouldBeOkForAllTags() throws Exception {
 		mvc.perform(get("/show-tags")).andExpect(status().isOk());
 	}
-	
+
 	@Test
 	public void shouldRouteToSingleInventoryItemView() throws Exception {
 		long inventoryItemId = 1;
 		when(inventoryRepo.findById(inventoryItemId)).thenReturn(Optional.of(inventoryItem));
 		mvc.perform(get("/inventoryItem?id=1")).andExpect(view().name(is("inventoryItem")));
 	}
-	
+
 	@Test
 	public void shouldBeOkForSingleInventoryItem() throws Exception {
 		long inventoryItemId = 1;
 		when(inventoryRepo.findById(inventoryItemId)).thenReturn(Optional.of(inventoryItem));
 		mvc.perform(get("/inventoryItem?id=1")).andExpect(status().isOk());
 	}
-	
+
 	@Test
 	public void shouldRouteToAllInventoryItemsView() throws Exception {
 		mvc.perform(get("/show-inventory-items")).andExpect(view().name(is("inventoryItems")));
 	}
-	
+
 	@Test
 	public void shouldBeOkForAllInventoryItems() throws Exception {
 		mvc.perform(get("/show-inventory-items")).andExpect(status().isOk());
