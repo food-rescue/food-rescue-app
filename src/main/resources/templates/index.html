@@ -37,10 +37,7 @@
        
           <ul>
             <li th:each="inventoryItem: ${inventoryModel}">
-            	<a th:href="@{/inventoryItem(id=${inventoryItem.id})}" th:text="${inventoryItem.inventoryItemName}"></a>
-            	
-            	
-<!-- Could we use the anchor link here to go directly to a page of recipes for that item?-->            
+            	<a th:href="@{/inventoryItem(id=${inventoryItem.id})}" th:text="${inventoryItem}"></a>       
           </ul>
         </section>
 

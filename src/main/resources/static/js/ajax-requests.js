@@ -16,8 +16,10 @@ addFoodButton.addEventListener('click', function() {
 })
 
 function postFoodList(inventoryItemName){
-	xhr.open('POST', '/index/food-list' + inventoryItemName, true)
+	xhr.open('POST', '/home', true)
 	xhr.send()
 }
+
+
 
 //add html submit button to partial to send list to recipe repository
