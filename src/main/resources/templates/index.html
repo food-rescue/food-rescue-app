@@ -24,6 +24,7 @@
   	</div>
 
  	<div class="grid-item inventory">
+ 	
  		<h1>Food Inventory</h1>
       
         <section class="add-food">
@@ -32,27 +33,19 @@
           <button>Add Food</button> 
         </section>
 
-        <section class="food-list">
-          <h2>Food on-hand:</h2>  
-       
+        <h2>Food on-hand:</h2>  
+        
+        <section class="food-list">    
           <ul>
-          	<li th:if="${inventoryModel.size() ==0}">Add some food.</li>
-             <li th:if="${inventoryModel.size() !=0}" th:each="inventoryItem : ${inventoryModel}">
+            <li th:each="inventoryItem : ${inventoryModel}">
             	<a th:href="@{/inventoryItem(id=${inventoryItem.id})}" th:text="${inventoryItem.inventoryItemName}"></a>  
             </li>	            	    
-          </ul>
-          
-         </section>         
-        
-        
-</li>	
-    
-</li>	
+          </ul>          
+        </section>         
+  	</div>
 
- 	</div>
-
- 		<footer class="grid-item footer">&copyFlexCode2018 <a href="https://github.com/food-rescue/food-rescue-app" class="fa fa-github-square"></a>
- 		</footer>
+ 	<footer class="grid-item footer">&copyFlexCode2018 <a href="https://github.com/food-rescue/food-rescue-app" class="fa fa-github-square"></a>
+ 	</footer>
 
 	</div> <!-- container -->
 
