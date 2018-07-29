@@ -23,18 +23,18 @@ public class FoodRescuePopulator implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		
-		Item avocado = new Item("Avocado");
-		Item bananas = new Item("Bananas");
-		Item bread = new Item("Bread");
-		Item cheese = new Item("Cheese");
-		Item chickenBreast = new Item("Chicken Breast");
-		Item eggs = new Item("Eggs");
-		Item groundBeef = new Item("Ground Beef");
-		Item lettuce = new Item("Lettuce");
-		Item milk = new Item("Milk");
-		Item potato = new Item("Potato");
-		Item salmon = new Item("Salmon");
-		Item tortillas = new Item("Tortillas");
+		Item avocado = new Item("Avocado", "/images/iAvocado.jpg");
+		Item bananas = new Item("Bananas", "/images/iBanana.jpg");
+		Item bread = new Item("Bread", "/images/iBread.jpg");
+		Item cheese = new Item("Cheese", "/images/iCheese.jpg");
+		Item chickenBreast = new Item("Chicken Breast", "/images/iChickenBreast.jpg" );
+		Item eggs = new Item("Eggs", "/images/iEggs.jpg");
+		Item groundBeef = new Item("Ground Beef", "/images/iGroundBeef.jpg");
+		Item lettuce = new Item("Lettuce", "/images/iLettuce.jpg");
+		Item milk = new Item("Milk", "/images/iMilk.jpg");
+		Item potato = new Item("Potato", "/images/iPotato.jpg");
+		Item salmon = new Item("Salmon", "/images/iSalmon.jpg");
+		Item tortillas = new Item("Tortillas", "/images/iTortillas.jpg");
 		itemRepo.save(avocado);
 		itemRepo.save(bananas);
 		itemRepo.save(bread);

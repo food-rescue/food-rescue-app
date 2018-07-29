@@ -21,26 +21,36 @@ public class Item {
 	@JsonIgnore
 	@ManyToMany(mappedBy = "items")
 	private Collection<Recipe> recipes;
+	private String itemImage;
 
 	public Item() {
 
 	}
 
-	public Item(String itemName) {
+	public Item(String itemName, String itemImage) {
 		this.itemName = itemName;
+		this.setItemImage(itemImage);
 	}
 
 	public long getId() {
 		return id;
 	}
 
-	public String getItemName() {
-
-		return itemName;
-	}
 
 	public Collection<Recipe> getRecipes() {
 		return recipes;
+	}
+	
+	public String getItemName() {
+		
+		return itemName;
+	}
+	public String getItemImage() {
+		return itemImage;
+	}
+	
+	public void setItemImage(String itemImage) {
+		this.itemImage = itemImage;
 	}
 
 	@Override
@@ -64,6 +74,7 @@ public class Item {
 			return false;
 		return true;
 	}
+
 
 
 }
