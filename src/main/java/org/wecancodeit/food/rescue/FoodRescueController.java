@@ -163,9 +163,11 @@ public class FoodRescueController {
 			if(foodToAdd == null) {
 				foodToAdd = new InventoryItem(inventoryItemName);
 				inventoryRepo.save(foodToAdd);
-			}
+			}	
+			
 			model.addAttribute("indexModel", inventoryRepo.findAll());		
 			return "partials/food-list";
 		}
+		
 
 }

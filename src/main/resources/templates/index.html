@@ -36,10 +36,18 @@
           <h2>Food on-hand:</h2>  
        
           <ul>
-            <li th:each="inventoryItem: ${inventoryModel}">
-            	<a th:href="@{/inventoryItem(id=${inventoryItem.id})}" th:text="${inventoryItem}"></a>       
+          	<li th:if="${inventoryModel.size() ==0}">Add some food.</li>
+             <li th:if="${inventoryModel.size() !=0}" th:each="inventoryItem : ${inventoryModel}">
+            	<a th:href="@{/inventoryItem(id=${inventoryItem.id})}" th:text="${inventoryItem.inventoryItemName}"></a>  
+            </li>	            	    
           </ul>
-        </section>
+          
+         </section>         
+        
+        
+</li>	
+    
+</li>	
 
  	</div>
 

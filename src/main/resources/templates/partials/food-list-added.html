@@ -1,5 +1,5 @@
 <h3>Food item added!</h3>
 
-<li th:each="inventoryItem : ${inventoryItemModel}">
-	<a th:href="@{/inventoryItem(id=${inventoryItem.id})}" th:text="${inventoryItem.inventoryItemName}"></a>
-</li>	
+ <li th:each="inventoryItem : ${inventoryModel}">
+   <a th:href="@{/inventoryItem(id=${inventoryItem.id})}" th:text="${inventoryItem.inventoryItemName}"></a> 
+</li>
