@@ -9,6 +9,7 @@
 
 	<div th:each="item: ${itemsModel}">
 		<h2 th:text="${item.itemName}"></h2>
+		<img id="" th:src = "${item.itemImage}">
 
 		<div th:each="recipe: ${item.recipes}">
 			<a th:href="@{/recipe(id=${recipe.id})}" th:text="${recipe.recipeName}"></a>
