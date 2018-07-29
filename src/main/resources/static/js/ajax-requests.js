@@ -16,9 +16,10 @@ addFoodButton.addEventListener('click', function() {
 })
 
 function postFoodList(inventoryItemName){
-	xhr.open('POST', '/home', true)
+	xhr.open('POST', '/index/add-food/' + inventoryItemName, true)	
 	xhr.send()
 }
+
 
 
 
