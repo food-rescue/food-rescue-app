@@ -59,8 +59,9 @@ h2 {
 }
 
 .inventory {
-	display: flex;
-	justify-content:  center;
+	display: flex;	
+	align-items: center;
+	flex-direction: column;
 	background-color: #465c8b;
 }
 
