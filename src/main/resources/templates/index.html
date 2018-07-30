@@ -38,7 +38,7 @@
         
         <section class="food-list">    
           <ul>
-            <li th:each="inventoryItem : ${inventoryModel}">
+            <li th:each="inventoryItem : ${inventoryItemsModel}">
             	<a th:href="@{/inventoryItem(id=${inventoryItem.id})}" th:text="${inventoryItem.inventoryItemName}"></a>  
             </li>	            	    
           </ul>          

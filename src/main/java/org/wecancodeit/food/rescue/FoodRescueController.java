@@ -156,8 +156,16 @@ public class FoodRescueController {
 		return "find-recipes";
 	}
 	
-	//Add food inventory to home page with Ajax
-		@RequestMapping(path = "/index/add-food/{inventoryItemName}", method = RequestMethod.POST)//
+	//This is probably unnecessary
+	@RequestMapping("/index")
+	public String showAllInventoryItems(Model model) {
+		model.addAttribute("inventroyItemModel", inventoryRepo.findAll());
+		return "partials/food-list-added";
+	}
+
+	
+	//Add food inventory with Ajax
+		@RequestMapping(path = "/index/add-food/{inventoryItemName}", method = RequestMethod.POST)
 		public String AddInventoryItem(@PathVariable String inventoryItemName, Model model) {
 			InventoryItem foodToAdd = inventoryRepo.findByInventoryItemName(inventoryItemName);
 			if(foodToAdd == null) {
@@ -165,8 +173,8 @@ public class FoodRescueController {
 				inventoryRepo.save(foodToAdd);
 			}	
 			
-			model.addAttribute("indexModel", inventoryRepo.findAll());		
-			return "partials/food-list";
+			model.addAttribute("inventoryItemsModel", inventoryRepo.findAll());		
+			return "partials/food-list-added";
 		}
 		
 
