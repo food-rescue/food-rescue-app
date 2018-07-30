@@ -2,7 +2,7 @@ const addFoodButton = document.querySelector('.add-food button');
 const addFoodInput = document.querySelector('.add-food input');
 const foodList = document.querySelector('.food-list ul');
 
-const xhr = new XMLHttpRequest()
+const xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function(){
 	if(xhr.readyState===4 && xhr.status ===200){
 		const res = xhr.responseText
