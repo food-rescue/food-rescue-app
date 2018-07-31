@@ -309,7 +309,7 @@ public class JPAMappingsTest {
 		entityManager.clear();
 
 		inventoryRepo.deleteById(itemId);
-
+	
 		Optional<InventoryItem> result = inventoryRepo.findById(itemId);
 
 		assertFalse(result.isPresent());

@@ -177,8 +177,9 @@ public class FoodRescueController {
 		inventoryRepo.deleteAll();
 		model.addAttribute("inventoryItemsModel", inventoryRepo.findAll());
 		
-		return "partials/food-list-added";
+		return "redirect:/partials/food-list-added";
 	}
+	
 
 	}
 	
