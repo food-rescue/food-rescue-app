@@ -1,6 +1,7 @@
 const addFoodButton = document.querySelector('.add-food button');
 const addFoodInput = document.querySelector('.add-food input');
 const foodList = document.querySelector('.food-list ul');
+const clearInventoryButton = document.querySelector('.clear-inventory button')
 
 const xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function(){
@@ -15,6 +16,11 @@ addFoodButton.addEventListener('click', function() {
 	addFoodInput.value = ""
 })
 
+clearInventoryButton.addEventListener('click', function() {
+	postFoodList()
+	
+})
+
 function postFoodList(inventoryItemName){
 	xhr.open('POST', '/index/add-food/' + inventoryItemName, true)	
 	xhr.send()
@@ -23,4 +29,4 @@ function postFoodList(inventoryItemName){
 
 
 
-//add html submit button to partial to send list to recipe repository
+
