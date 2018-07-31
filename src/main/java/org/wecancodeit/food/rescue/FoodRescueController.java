@@ -149,6 +149,19 @@ public class FoodRescueController {
 			
 			model.addAttribute("inventoryItemsModel", inventoryRepo.findAll());		
 			return "partials/food-list-added";
-		}		
+		}
+		
+	@RequestMapping(path = "/food-list-added/clear-inventory", method = RequestMethod.POST)
+	public String deleteAllInventoryItems(@PathVariable Model model) {
+	
+		inventoryRepo.deleteAll();
+		model.addAttribute("inventoryItemsModel", inventoryRepo.findAll());
+		
+		return "partials/food-list-added";
+	}
 
-}
+	}
+	
+
+
+
