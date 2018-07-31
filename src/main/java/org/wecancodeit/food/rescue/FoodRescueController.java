@@ -125,7 +125,7 @@ public class FoodRescueController {
 			for(Recipe recipe: recipes) {
 				Collection<Item> recipeItems = recipe.getItems();
 				for(Item item: recipeItems) {
-					if(inventoryItem.getInventoryItemName().equals(item.getItemName())) {
+					if(inventoryItem.getInventoryItemName().equalsIgnoreCase(item.getItemName())) {
 						matchedRecipes.add(recipe);
 					}
 				}
@@ -141,7 +141,7 @@ public class FoodRescueController {
 	//Add food inventory with Ajax
 		@RequestMapping(path = "/index/add-food/{inventoryItemName}", method = RequestMethod.POST)
 		public String AddInventoryItem(@PathVariable String inventoryItemName, Model model) {
-			InventoryItem foodToAdd = inventoryRepo.findByInventoryItemName(inventoryItemName);
+			InventoryItem foodToAdd = inventoryRepo.findByInventoryItemNameIgnoreCaseLike(inventoryItemName);
 			if(foodToAdd == null) {
 				foodToAdd = new InventoryItem(inventoryItemName);
 				inventoryRepo.save(foodToAdd);
@@ -151,13 +151,13 @@ public class FoodRescueController {
 			return "partials/food-list-added";
 		}
 		
-	@RequestMapping(path = "/food-list-added/clear-inventory", method = RequestMethod.POST)
-	public String deleteAllInventoryItems(@PathVariable Model model) {
+	@RequestMapping(path = "/index/clear-inventory", method = RequestMethod.POST)
+	public String deleteAllInventoryItems(Model model) {
 	
 		inventoryRepo.deleteAll();
 		model.addAttribute("inventoryItemsModel", inventoryRepo.findAll());
 		
-		return "redirect:/partials/food-list-added";
+		return "partials/food-list-cleared";
 	}
 	
 

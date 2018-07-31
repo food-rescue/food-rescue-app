@@ -55,16 +55,8 @@ public class FoodRescuePopulator implements CommandLineRunner {
 		tagRepo.save(breakfast);
 		tagRepo.save(dinner);
 		tagRepo.save(lunch);
-		tagRepo.save(snack);
-    
-    InventoryItem popcorn = new InventoryItem("Popcorn");
-		InventoryItem butter = new InventoryItem("Butter");
-		InventoryItem bread1 = new InventoryItem("Bread");
-		InventoryItem cheese1 = new InventoryItem("Cheese");
-		inventoryRepo.save(popcorn);
-		inventoryRepo.save(butter);
-		inventoryRepo.save(bread1);
-		inventoryRepo.save(cheese1);
+		tagRepo.save(snack);   
+   
 		
 		Recipe avocadoToast = new Recipe("Strawberry Balsamic Avocado Toast", "Toss sliced strawberries with a drizzle of balsamic vinegar, then pile on top of your avocado toast! The unexpected combination of strawberries and avocados works really well, especially with the rich tartness of balsamic vinegar.", 
 				"/images/bread.jpg", breakfast, avocado, bread);
