@@ -1,7 +1,9 @@
 const addFoodButton = document.querySelector('.add-food button');
 const addFoodInput = document.querySelector('.add-food input');
 const foodList = document.querySelector('.food-list ul');
-const clearInventoryButton = document.querySelector('.clear-inventory button')
+const clearInventoryButton = document.querySelector('.clear-inventory button');
+const clearInventoryInput = document.querySelector('.clear-inventory input');
+
 
 const xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function(){
@@ -16,15 +18,21 @@ addFoodButton.addEventListener('click', function() {
 	addFoodInput.value = ""
 })
 
-clearInventoryButton.addEventListener('click', function() {
-	postFoodList()
-	
+
+clearInventoryButton.addEventListener('click', function() {	
+	postFoodList(input.deleteAll)
+	addFoodInput.value = ""
 })
+
 
 function postFoodList(inventoryItemName){
 	xhr.open('POST', '/index/add-food/' + inventoryItemName, true)	
 	xhr.send()
 }
+
+
+
+
 
 
 
