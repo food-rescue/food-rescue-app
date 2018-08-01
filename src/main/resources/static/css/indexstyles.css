@@ -1,7 +1,7 @@
 body {
-	margin: 40px;
-	
-	background-image: url("images/lettuce.jpg");
+	margin: 40px;	
+	background: linear-gradient(#465c8b, #f7ef6a);
+
 	background-color: #93C178;	
 	background-repeat: no-repeat;
    	background-size: cover;
@@ -22,7 +22,7 @@ body {
 	grid-gap: 10px;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-template-rows: auto auto auto;
-	color: white;	
+	color: white;
 }
 
 .grid-item {
@@ -36,6 +36,7 @@ body {
 	align-content: space-around;
 	font-family: 'Merienda', cursive, sans-serif;
 	font-size: 100px;
+	background-color: #93C178;	
 }
 
 h1 {
@@ -72,7 +73,7 @@ h2 {
 	background-size: cover;
     background-position: 0% 40% ;
 
-	background-image:  url("/images/cuttingboard");
+	background-image:  url("/images/cuttingboard.jpg");
 }
 
 .inventory {
@@ -92,6 +93,8 @@ footer {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	background-color: #93C178;
+	
 }
 
 
