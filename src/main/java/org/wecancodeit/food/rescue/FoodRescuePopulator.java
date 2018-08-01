@@ -57,8 +57,8 @@ public class FoodRescuePopulator implements CommandLineRunner {
 		tagRepo.save(lunch);
 		tagRepo.save(snack);
 		tagRepo.save(snack);   
+ 		tagRepo.save(snack);   
    
-
 		
 		Recipe avocadoToast = new Recipe("Strawberry Balsamic Avocado Toast", "Toss sliced strawberries with a drizzle of balsamic vinegar, then pile on top of your avocado toast! The unexpected combination of strawberries and avocados works really well, especially with the rich tartness of balsamic vinegar.", 
 				"/images/toast.jpg", breakfast, avocado, bread);
