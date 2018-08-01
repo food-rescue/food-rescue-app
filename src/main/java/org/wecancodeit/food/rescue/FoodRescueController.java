@@ -121,22 +121,19 @@ public class FoodRescueController {
 		Iterable<Recipe> recipes = recipeRepo.findAll();
 		Collection<Recipe> matchedRecipes = new HashSet<Recipe>();
 
-		Collection<Item> matchedItems = new HashSet<Item>();
 		Collection<Recipe> completeRecipes = new HashSet<Recipe>();
-		for (InventoryItem inventoryItem : inventoryItems) {
-			for (Recipe recipe : recipes) {
+		for (Recipe recipe : recipes) {
+			Collection<Item> matchedItems = new HashSet<Item>();
+			for (InventoryItem inventoryItem : inventoryItems) {
 				Collection<Item> recipeItems = recipe.getItems();
 				for (Item item : recipeItems) {
 					if (inventoryItem.getInventoryItemName().equals(item.getItemName())) {
 						matchedItems.add(item);
 					}
 				}
-
-				int sizeDifference = recipe.getItems().size() - matchedItems.size();
-				if (sizeDifference == 0) {
+				if (matchedItems.containsAll(recipeItems)) {
 					completeRecipes.add(recipe);
 				}
-				matchedItems.clear();
 			}
 		}
 		model.addAttribute("completeRecipesModel", completeRecipes);
@@ -151,6 +148,7 @@ public class FoodRescueController {
 				}
 			}
 		}
+
 		model.addAttribute("recipesModel", matchedRecipes);
 
 		return "find-recipes";
