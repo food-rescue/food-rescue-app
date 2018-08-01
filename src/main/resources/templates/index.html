@@ -1,29 +1,63 @@
 <!DOCTYPE html>
 <html>
-<head>
-<link rel="stylesheet" type="text/css" href="/css/indexstyles.css">
-<link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300%7CRoboto" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<title>Food Rescue</title>
 
+<head>
+  <link rel="stylesheet" type="text/css" href="/css/indexstyles.css">
+  <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300%7CRoboto" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<title>Food Rescue</title>
 </head>
+
 <body>
+
 	<div class="grid-container">
-  		<header class="grid-item header" > 
+
+  	<header class="grid-item header" > 
   		Food<img class = "logo" img src="/images/Logo.jpg"></img>Rescue
-  		</header>
-  		<div class="grid-item about">
-  			<h1>Don't throw out that aging food!</h1>
-  			<h2>blah blah blah</h2>
-  		</div>
- 		<div class="grid-item ingredients">
- 			<h1>Food Inventory</h1>
- 		</div>
- 		<footer class="grid-item footer">&copyFlexCode2018 <a href="https://github.com/food-rescue/food-rescue-app" class="fa fa-github-square"></a>
- 		</footer>
+  	</header>
+
+  	<div class="grid-item about">
+  		<h1>Waste not, want not.</h1>
+  	 <h3 id="aboutText">The Food Rescue app is here to salvage the food you bought, then forgot and was almost left to rot… </h3>
+        <p>All you have to do is enter the food items you have in your refrigerator/pantry and Food Rescue does the rest of the work for you.</br> A list of recipes will be generated using only the food items you have on hand so you don't have to make an extra trip to the grocery store AND you can save on food waste.</p>
+  	</div>
+
+ 	<div class="grid-item inventory">
+ 	
+ 		<h1 id="inventory">Food Inventory</h1>
+      
+        <section class="add-food">
+          <h2>Enter your food items here:</h2>
+          <input type="text"/>
+          <button>Add Food</button> 
+        </section>
+
+        <h2>Food on-hand:</h2>  
+        
+        <section class="food-list">    
+          <ul>
+            <li th:each="inventoryItem : ${inventoryItemsModel}">
+            	<a th:href="@{/inventoryItem(id=${inventoryItem.id})}" th:text="${inventoryItem.inventoryItemName}"></a>  
+            </li>	            	    
+          </ul>  
+          
+      	
+	 		 <button id="clear"> Clear Food List</button>
+		
+
+         </section>    
+     
+  	</div>
+
+ 	<footer class="grid-item footer">&copyFlexCode2018 <a href="https://github.com/food-rescue/food-rescue-app" class="fa fa-github-square"></a>
+ 	</footer>
+
 	</div> <!-- container -->
 
- 
+  <script src = "./js/ajax-requests.js"></script>
+
 </body>
 </html>
+

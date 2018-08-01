@@ -6,4 +6,6 @@ public interface InventoryRepository extends CrudRepository<InventoryItem, Long>
 	
 	InventoryItem findByInventoryItemName(String inventoryItemName);
 
+	InventoryItem findByInventoryItemNameIgnoreCaseLike(String inventoryItemName);
+
 }
