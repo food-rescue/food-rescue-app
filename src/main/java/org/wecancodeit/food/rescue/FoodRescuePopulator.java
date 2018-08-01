@@ -12,6 +12,12 @@ public class FoodRescuePopulator implements CommandLineRunner {
 	private ItemRepository itemRepo;
 	
 	@Resource
+	private UnpackagedItemRepository unpackagedRepo;
+	
+	@Resource
+	private PackagedItemRepository packagedRepo;
+	
+	@Resource
 	private RecipeRepository recipeRepo;
 	
 	@Resource
@@ -23,30 +29,31 @@ public class FoodRescuePopulator implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		
-		Item avocado = new Item("Avocado", "/images/iAvocado.jpg");
-		Item bananas = new Item("Bananas", "/images/iBanana.jpg");
-		Item bread = new Item("Bread", "/images/iBread.jpg");
-		Item cheese = new Item("Cheese", "/images/iCheese.jpg");
-		Item chickenBreast = new Item("Chicken Breast", "/images/iChickenBreast.jpg" );
-		Item eggs = new Item("Eggs", "/images/iEggs.jpg");
-		Item groundBeef = new Item("Ground Beef", "/images/iGroundBeef.jpg");
-		Item lettuce = new Item("Lettuce", "/images/iLettuce.jpg");
-		Item milk = new Item("Milk", "/images/iMilk.jpg");
-		Item potato = new Item("Potato", "/images/iPotato.jpg");
-		Item salmon = new Item("Salmon", "/images/iSalmon.jpg");
-		Item tortillas = new Item("Tortillas", "/images/iTortillas.jpg");
-		itemRepo.save(avocado);
-		itemRepo.save(bananas);
-		itemRepo.save(bread);
-		itemRepo.save(cheese);
-		itemRepo.save(chickenBreast);
-		itemRepo.save(eggs);
-		itemRepo.save(groundBeef);
-		itemRepo.save(lettuce);
-		itemRepo.save(milk);
-		itemRepo.save(potato);
-		itemRepo.save(salmon);
-		itemRepo.save(tortillas);
+		PackagedItem bread = new PackagedItem("Bread", "/images/iBread.jpg", "8/6/18");
+		PackagedItem cheese = new PackagedItem("Cheese", "/images/iCheese.jpg", "8/17/18");
+		PackagedItem chickenBreast = new PackagedItem("Chicken Breast", "/images/iChickenBreast.jpg", "8/15/18");
+		PackagedItem eggs = new PackagedItem("Eggs", "/images/iEggs.jpg", "8/9/18");
+		PackagedItem groundBeef = new PackagedItem("Ground Beef", "/images/iGroundBeef.jpg", "8/15/18");
+		PackagedItem milk = new PackagedItem("Milk", "/images/iMilk.jpg", "8/13/18");
+		PackagedItem salmon = new PackagedItem("Salmon", "/images/iSalmon.jpg", "8/15/18");
+		PackagedItem tortillas = new PackagedItem("Tortillas", "/images/iTortillas.jpg", "9/4/18");
+		packagedRepo.save(bread);
+		packagedRepo.save(cheese);
+		packagedRepo.save(chickenBreast);
+		packagedRepo.save(eggs);
+		packagedRepo.save(groundBeef);
+		packagedRepo.save(milk);
+		packagedRepo.save(salmon);
+		packagedRepo.save(tortillas);		
+		
+		UnpackagedItem avocado = new UnpackagedItem("Avocado", "/images/iAvocado.jpg", "7/31/18");
+		UnpackagedItem bananas = new UnpackagedItem("Bananas", "/images/iBanana.jpg", "7/31/18");
+		UnpackagedItem lettuce = new UnpackagedItem("Lettuce", "/images/iLettuce.jpg", "7/31/18");
+		UnpackagedItem potato = new UnpackagedItem("Potato", "/images/iPotato.jpg", "7/31/18");
+		unpackagedRepo.save(avocado);
+		unpackagedRepo.save(bananas);
+		unpackagedRepo.save(lettuce);
+		unpackagedRepo.save(potato);
 		
 		Tag breakfast = new Tag("Breakfast");
 		Tag dinner = new Tag("Dinner");

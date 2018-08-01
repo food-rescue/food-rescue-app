@@ -11,17 +11,17 @@ import javax.persistence.ManyToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Item {
+public abstract class Item {
 
 	@Id
 	@GeneratedValue
 	private long id;
-	private String itemName;
+	protected String itemName;
 
 	@JsonIgnore
 	@ManyToMany(mappedBy = "items")
 	private Collection<Recipe> recipes;
-	private String itemImage;
+	protected String itemImage;
 
 	public Item() {
 
