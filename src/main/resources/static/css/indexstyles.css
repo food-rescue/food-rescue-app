@@ -76,6 +76,12 @@ h2 {
 	background-color: #465c8b;
 }
 
+#clear {
+	display: flex;	
+	align-items: center;
+	visibility:hidden;
+}
+
 footer {
 	display: flex;
 	justify-content: space-between;

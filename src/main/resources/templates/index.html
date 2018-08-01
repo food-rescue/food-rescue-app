@@ -41,8 +41,13 @@
             <li th:each="inventoryItem : ${inventoryItemsModel}">
             	<a th:href="@{/inventoryItem(id=${inventoryItem.id})}" th:text="${inventoryItem.inventoryItemName}"></a>  
             </li>	            	    
-          </ul>          
-        </section>    
+          </ul>  
+          
+      	
+	 		 <button id="clear"> Clear Food List</button>
+		
+
+         </section>    
      
   	</div>
 
