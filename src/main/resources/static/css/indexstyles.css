@@ -1,3 +1,11 @@
+*{
+	Line-height: 1.618em;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	
+}
+
 body {
 	margin: 40px;	
 	background: linear-gradient(#465c8b, #f7ef6a);
@@ -5,16 +13,6 @@ body {
 	background-color: #93C178;	
 	background-repeat: no-repeat;
    	background-size: cover;
-}
-
- #aboutText{
-    margin: 25px 50px 75px 100px;
-    color: #465C8B;
-}
-
- #inventory{
-   text-align:center;
-
 }
 
 .grid-container {
@@ -42,13 +40,26 @@ body {
 h1 {
 	font-family: 'Merienda', cursive, sans-serif;
 	font-size: 50px;
+	color: white;
+	align-items: center;
 }
 
 h2 {
+	font-family: 'Merienda', cursive, sans-serif;
+	font-size: 30px;
+	color: white;	
+}
+
+h3 {
 	font-size: 25px;
 	/*font-family: 'Roboto', sans-serif;*/
-	font-family: 'Open Sans Condensed', sans-serif;
-	
+	font-family: 'Open Sans Condensed', sans-serif;	
+}
+
+h4 {
+	font-size: 20px;
+	font-family: 'Open Sans Condensed', sans-serif;	
+	padding: 0px 100px 50px 200px;
 }
 
 .logo {
@@ -64,10 +75,10 @@ h2 {
 	display: flex;
 	grid-column: 1/3;
 	background-color: #f7ef6a;
-	align-items: center;
+	padding-top: 50px;
 	flex-direction: column;
-
-	color: #465C8B;
+	
+	color: #334366;
 			
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -76,13 +87,50 @@ h2 {
 	background-image:  url("/images/cuttingboard.jpg");
 }
 
+#aboutTitle{
+	display: flex;
+	align-items: center;
+}
+
+#aboutText1 {
+	display: flex; 
+	align-items: left;  
+    color: #334366;
+    padding-top: 20px;
+    padding-left: 175px;
+   
+}
+
+#aboutText2 {
+	display: flex; 
+	align-items: left;  
+    color: #334366;
+    padding-left: 325px;
+}
+
+#aboutText3 {
+	display: flex; 
+	align-items: left;  
+    color: #334366;
+    padding-left: 425px;
+}
+
+    
 .inventory {
 	display: flex;	
 	align-items: center;
 	flex-direction: column;
 	background-color: #465c8b;
+	text-align:center;
 }
 
+.food-list {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+ 
 #clear {
 	display: flex;	
 	align-items: center;
@@ -96,7 +144,6 @@ footer {
 	background-color: #93C178;
 	
 }
-
 
 
 .fa {
