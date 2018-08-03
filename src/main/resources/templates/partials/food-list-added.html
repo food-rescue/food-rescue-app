@@ -1,14 +1,11 @@
- 
- <li th:each="inventoryItem : ${inventoryItemsModel}">
+  <li th:each="inventoryItem : ${inventoryItemsModel}">
    <a th:href="@{/inventoryItem(id=${inventoryItem.id})}" th:text="${inventoryItem.inventoryItemName}"></a> 
 </li>
 
 <h3>Add more food or go to recipes</h3>           
 
 <form method="POST">
-	<div>
-	  <button th:formaction="@{/find-recipes}"> Find Recipes</button>
-	</div>
+	  <button id="find-recipes" th:formaction="@{/find-recipes}"> Find Recipes</button>
 </form> 
 
 
