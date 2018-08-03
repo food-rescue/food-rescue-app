@@ -57,7 +57,7 @@ h3 {
 h4 {
 	font-size: 20px;
 	font-family: 'Open Sans Condensed', sans-serif;	
-	padding: 0px 100px 50px 200px;
+	padding: 10px 100px 5px 200px;
 }
 
 .logo {
@@ -99,10 +99,17 @@ h4 {
 	display: flex; 
 	align-items: left;  
     color: #334366;
-    padding-left: 325px;
+    padding-left: 275px;
 }
 
 #aboutText3 {
+	display: flex; 
+	align-items: left;  
+    color: #334366;
+    padding-left: 350px;
+}
+
+#aboutText4 {
 	display: flex; 
 	align-items: left;  
     color: #334366;
@@ -115,22 +122,21 @@ h4 {
 	align-items: center;
 	background-color: #465c8b;
 	flex-direction: column;
-	padding-top: 30px;	
-	
+	padding-top: 30px;		
 }
+
 
 .food-list {
 	display: flex;
 	align-items:left;
 	flex-direction: column;
 	padding-top: 30px;
-
 }
 
 
 li a {
 	color: white;
-	font-size:1.5rem;
+	font-size:1.25rem;
 	text-decoration:none;
 }
 
@@ -139,30 +145,46 @@ li a:hover {
 }
 
 .list-display li {
-  margin-bottom:.4rem;
-  font-size:1.75rem;
+  	margin-bottom:.4rem;
+  	font-size:1.75rem;
 }
 
 .list-checkmarks {
-  padding-left:1.5rem;
+  	padding-left:1.5rem;
 }
 
 .list-checkmarks li {
-  list-style-type:none;
-  padding-left:1rem;
+  	list-style-type:none;
+  	padding-left:1rem;
 }
 
 .list-checkmarks li:before {    
-font-family: 'FontAwesome';
-content: "\f00c";
-margin:0 10px 0 -28px;
-color: #17aa1c;
+	font-family: 'FontAwesome';
+	content: "\f00c";
+	margin:0 10px 0 -28px;
+	color: #17aa1c;
+}
+
+button {
+    border: 1.5px solid;
+    background-color: white;  
+    padding: 1px 6px;
+    font-size: 13px;
+    cursor: pointer;
+    border-color: #ff4500;
+    color: #ff4500;
+    border-radius: 16px;
+}
+
+button:hover {
+    background-color: #ff4500;
+    color: white;
 }
 
  
 #clear {
 	display: flex;	
-	align-items: center;
+	align-items: right;
 	visibility:hidden;
 }
 
@@ -170,8 +192,7 @@ footer {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	background-color: #93C178;
-	
+	background-color: #93C178;	
 }
 
 
@@ -185,8 +206,7 @@ footer {
 }
 
 .fa:hover {
-    opacity: 0.7;
-    
+    opacity: 0.7;    
 }
 
 

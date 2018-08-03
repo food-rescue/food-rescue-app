@@ -25,9 +25,10 @@
 
   	<div class="grid-item about">
   		<h1>Waste not, want not.</h1>
-  		<h3 id="aboutText1">The Food Rescue app is here to salvage the food you bought,</h3>
-  		 <h3 id="aboutText2">then forgot and</h3>
-  		 <h3 id="aboutText3">was almost left to rot... </h3>
+  		<h3 id="aboutText1">The Food Rescue app is here to salvage the</h3>
+  		<h3 id ="aboutText2"> food you bought,</h3>
+  		 <h3 id="aboutText3">then forgot and</h3>
+  		 <h3 id="aboutText4">was almost left to rot... </h3>
         <h4>All you have to do is enter the food items you have in your refrigerator/pantry and Food Rescue does the rest of the work for you.</h4> 
         <h4>A list of recipes will be generated using only the food items you have on hand so you don't have to make an extra trip to the grocery store AND you can save on food waste.</h4>
   	</div>
@@ -41,8 +42,9 @@
           	<button>Add Food</button> 
         </section>        
         
+       
         <section class="food-list"> 
-       		<h2>Food on-hand:</h2>     
+       		 <h2>Food on-hand:</h2>     
           	<ul class="list-display list-checkmarks">
             	<li th:each="inventoryItem : ${inventoryItemsModel}">
             		<a th:href="@{/inventoryItem(id=${inventoryItem.id})}" th:text="${inventoryItem.inventoryItemName}"></a>  
