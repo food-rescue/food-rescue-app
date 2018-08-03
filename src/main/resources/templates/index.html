@@ -6,6 +6,7 @@
   <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300%7CRoboto" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href = "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<title>Food Rescue</title>
 </head>
@@ -17,9 +18,13 @@
   	<header class="grid-item header" > 
   		Food<img class = "logo" img src="/images/Logo.jpg"></img>Rescue
   	</header>
+  	
+  	<section>
+  	
+  	</section>
 
   	<div class="grid-item about">
-  		<h1 id="aboutTitle">Waste not, want not.</h1>
+  		<h1>Waste not, want not.</h1>
   		<h3 id="aboutText1">The Food Rescue app is here to salvage the food you bought,</h3>
   		 <h3 id="aboutText2">then forgot and</h3>
   		 <h3 id="aboutText3">was almost left to rot... </h3>
@@ -27,30 +32,26 @@
         <h4>A list of recipes will be generated using only the food items you have on hand so you don't have to make an extra trip to the grocery store AND you can save on food waste.</h4>
   	</div>
 
- 	<div class="grid-item inventory">
- 	
- 		<h2>Food Inventory</h2>
+ 	<div class="grid-item inventory"> 		
       
         <section class="add-food">
-          <h3>Enter your food items here:</h3>
-          <input type="text"/>
-          <button>Add Food</button> 
-        </section>
-
-        <h2>Food on-hand:</h2>  
+        	<h2>Food Inventory</h2>
+          	<h3>Enter your food items here:</h3>
+         	 <input type="text"/>
+          	<button>Add Food</button> 
+        </section>        
         
-        <section class="food-list">    
-          <ul>
-            <li th:each="inventoryItem : ${inventoryItemsModel}">
-            	<a th:href="@{/inventoryItem(id=${inventoryItem.id})}" th:text="${inventoryItem.inventoryItemName}"></a>  
-            </li>	            	    
-          </ul>  
-          
+        <section class="food-list"> 
+       		<h2>Food on-hand:</h2>     
+          	<ul class="list-display list-checkmarks">
+            	<li th:each="inventoryItem : ${inventoryItemsModel}">
+            		<a th:href="@{/inventoryItem(id=${inventoryItem.id})}" th:text="${inventoryItem.inventoryItemName}"></a>  
+            	</li>	            	    
+          	</ul>            
       	
-	 		 <button id="clear"> Clear Food List</button>
-		
+	 		<button id="clear"> Clear Food List</button>		
 
-         </section>    
+         </section>   
      
   	</div>
 
