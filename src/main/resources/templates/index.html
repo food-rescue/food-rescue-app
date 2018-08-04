@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300%7CRoboto" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href = "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<title>Food Rescue</title>
 </head>
@@ -16,10 +17,24 @@
 	<div class="grid-container">
 
   	<header class="grid-item header" > 
+
+  	<div id="mySidenav" class="sidenav">
+   		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+   		<a href="http://localhost:8080/show-recipes">Recipes</a>
+   		<a href="#">Shopping Cart</a>
+   		<a href="#">Food Banks</a>
+   		<a href="https://www.webmd.com/diet/printable/portion-control-size-guide">Healthy Portions</a>
+   		<a href="#">About Us</a>
+ 	</div>
+
+ 	<div id="main">
+   		<span style="font-size: 30px;cursor:pointer;" onclick="openNav()">&#9776;</span>
+ 	</div> 		
+
   		Food<img class = "logo" img src="/images/Logo.jpg"></img>Rescue
   	</header>
   	  	
-  	<marquee behavior = "scroll" direction ="right" scrollamount="15" ><img src = "/images/fra.png">
+  	<marquee class="grid-item marquee" behavior = "scroll" direction ="right" scrollamount="15" loop="1"><img src = "/images/foodambo.png" style="width: 15%">
   	</marquee>  	
 
   	<div class="grid-item about">
@@ -32,7 +47,7 @@
         <h4>A list of recipes will be generated using only the food items you have on hand so you don't have to make an extra trip to the grocery store AND you can save on food waste.</h4>
   	</div>
 
- 	<div class="grid-item inventory"> 		
+ 	<div class="grid-item inventory">
       
         <section class="add-food">
         	<h2>Food Inventory</h2>
@@ -62,6 +77,7 @@
 	</div> <!-- container -->
 
   <script src = "./js/ajax-requests.js"></script>
+  <script src = "./js/indexstyles.js"></script>
 
 </body>
 </html>
