@@ -19,6 +19,20 @@
 		<div th:each="item: ${recipe.items}">
 			<a th:href="@{/item(id=${item.id})}" th:text="${item.itemName}"></a>
 		</div>
+		
+		
+		<form method="POST">
+			<input name="recipeId" type="hidden" th:value="${recipe.id}" />
+			<ul>
+				<li th:each="item: ${recipe.items}"><span
+					th:text="${item.itemName}"></span>
+					<button id="x" name="itemId" th:value="${item.id}"
+						th:formaction="@{add-item-to-cart-button}">&times;</button>
+			</ul>
+		</form>
+		
+		
+		
 	</div>
 
 <a href="http://localhost:8080/show-recipes">Back to Recipes View</a>
