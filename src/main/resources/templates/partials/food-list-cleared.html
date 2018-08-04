@@ -1,5 +1,6 @@
-<h3>Your food list has been cleared. We're ready to start again!</h3>
-<h3>Enter your food list, above.</h3>
+<h3>Your food list has been cleared.</h3>
+<h3>We're ready to start again!</h3>
+
 
 <li th:each="inventoryItem : ${inventoryItemsModel}">
    <a th:href="@{/inventoryItem(id=${inventoryItem.id})}" th:text="${inventoryItem.inventoryItemName}"></a> 
