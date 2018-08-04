@@ -12,6 +12,9 @@ xhr.onreadystatechange = function(){
 	}
 }
 
+xhr.open('POST', '/index/show-inventory', true)	
+xhr.send()
+
 addFoodButton.addEventListener('click', function() {
 	postFoodList(addFoodInput.value)
 	addFoodInput.value = ""
