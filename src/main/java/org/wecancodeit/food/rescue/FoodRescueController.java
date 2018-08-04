@@ -27,6 +27,9 @@ public class FoodRescueController {
 
 	@Resource
 	InventoryRepository inventoryRepo;
+	
+	@Resource
+	CartRepository cartRepo;
 
 	@RequestMapping("/home")
 	public String home() {
@@ -185,6 +188,33 @@ public class FoodRescueController {
 			model.addAttribute("inventoryItemsModel", inventoryRepo.findAll());
 		
 			return "partials/food-list-added";
+	}
+	
+
+	@RequestMapping("/cart")
+	public String findAllCartItems(Model model) {
+		model.addAttribute("cartModel", cartRepo.findAll());
+		return "cart";
+	}
+	
+	@RequestMapping("/add-item")
+	public String addItemsToCart(@RequestParam(value = "id") long itemId) {
+		Optional<Item> itemResult = itemRepo.findById(itemId);
+		Item item = itemResult.get();
+		Cart lineItem;
+		
+		Optional<Cart>foundItem = cartRepo.findByItem(item);
+		
+		if (foundItem.isPresent()) {
+			lineItem = foundItem.get();
+		}else {
+			lineItem = new Cart(item);
+		}
+		
+		cartRepo.save(lineItem);
+		
+		
+		return "redirect:/cart"; 
 	}
 	
 

@@ -54,6 +54,15 @@ public class FoodRescueControllerTest {
 
 	@Mock
 	private InventoryItem inventoryItem2;
+	
+	@Mock
+	private CartRepository cartRepo;
+	
+	@Mock
+	private Cart cartItem1;
+	
+	@Mock
+	private Cart cartItem2;
 
 	@Mock
 	private Model model;
@@ -135,4 +144,19 @@ public class FoodRescueControllerTest {
 		verify(model).addAttribute("inventoryItemsModel", allInventoryItems);
 	}
 
+	@Test
+	public void shouldAddItemsToCartModel() {
+		Collection<Cart> cartItems = Arrays.asList(cartItem1, cartItem2);
+		when(cartRepo.findAll()).thenReturn(cartItems);
+		underTest.findAllCartItems(model);
+
+		verify(model).addAttribute("cartModel", cartItems);
+	}
+	
+	
+	
+	
+	
+	
+	
 }
