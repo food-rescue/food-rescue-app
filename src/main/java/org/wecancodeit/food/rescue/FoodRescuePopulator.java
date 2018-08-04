@@ -1,5 +1,7 @@
 package org.wecancodeit.food.rescue;
 
+import java.util.GregorianCalendar;
+
 import javax.annotation.Resource;
 
 import org.springframework.boot.CommandLineRunner;
@@ -23,20 +25,20 @@ public class FoodRescuePopulator implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		
-		Item avocado = new Item("Avocado", "/images/iAvocado.jpg");
-		Item bacon = new Item("Bacon", "/images/bacon.jpg"); 
-		Item bananas = new Item("Bananas", "/images/iBanana.jpg");
-		Item bread = new Item("Bread", "/images/iBread.jpg");
-		Item cheese = new Item("Cheese", "/images/iCheese.jpg");
-		Item chickenBreast = new Item("Chicken Breast", "/images/iChickenBreast.jpg" );
-		Item eggs = new Item("Eggs", "/images/iEggs.jpg");
-		Item groundBeef = new Item("Ground Beef", "/images/iGroundBeef.jpg");
-		Item lettuce = new Item("Lettuce", "/images/iLettuce.jpg");
-		Item milk = new Item("Milk", "/images/iMilk.jpg");
-		Item potato = new Item("Potato", "/images/iPotato.jpg");
-		Item salmon = new Item("Salmon", "/images/iSalmon.jpg");
-		Item strawberry = new Item("Strawberry", "/images/strawberry.jpg"); 
-		Item tortillas = new Item("Tortillas", "/images/iTortillas.jpg");
+		Item avocado = new Item("Avocado", "/images/iAvocado.jpg", new GregorianCalendar(2018,8,04));
+		Item bacon = new Item("Bacon", "/images/bacon.jpg", new GregorianCalendar(2018,8,04)); 
+		Item bananas = new Item("Bananas", "/images/iBanana.jpg", new GregorianCalendar(2018,8,04));
+		Item bread = new Item("Bread", "/images/iBread.jpg", new GregorianCalendar(2018,8,04));
+		Item cheese = new Item("Cheese", "/images/iCheese.jpg", new GregorianCalendar(2018,8,04));
+		Item chickenBreast = new Item("Chicken Breast", "/images/iChickenBreast.jpg", new GregorianCalendar(2018,8,04));
+		Item eggs = new Item("Eggs", "/images/iEggs.jpg", new GregorianCalendar(2018,8,04));
+		Item groundBeef = new Item("Ground Beef", "/images/iGroundBeef.jpg", new GregorianCalendar(2018,8,04));
+		Item lettuce = new Item("Lettuce", "/images/iLettuce.jpg", new GregorianCalendar(2018,8,04));
+		Item milk = new Item("Milk", "/images/iMilk.jpg", new GregorianCalendar(2018,8,04));
+		Item potato = new Item("Potato", "/images/iPotato.jpg", new GregorianCalendar(2018,8,04));
+		Item salmon = new Item("Salmon", "/images/iSalmon.jpg", new GregorianCalendar(2018,8,04));
+		Item strawberry = new Item("Strawberry", "/images/strawberry.jpg", new GregorianCalendar(2018,8,04)); 
+		Item tortillas = new Item("Tortillas", "/images/iTortillas.jpg", new GregorianCalendar(2018,8,04));
 		itemRepo.save(avocado);
 		itemRepo.save(bacon); 
 		itemRepo.save(bananas);

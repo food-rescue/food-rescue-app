@@ -1,6 +1,6 @@
 package org.wecancodeit.food.rescue;
 
-import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
 
 import javax.persistence.Entity;
@@ -22,21 +22,38 @@ public class Item {
 	@ManyToMany(mappedBy = "items")
 	private Collection<Recipe> recipes;
 	private String itemImage;
+	private Calendar date;
+	private int day;
 
 	public Item() {
 
 	}
 
-	public Item(String itemName, String itemImage) {
+	public Item(String itemName, String itemImage, Calendar date) {
 		this.itemName = itemName;
 		this.setItemImage(itemImage);
+		this.date = date;
+	}
+	
+	public Calendar Calendar(int year, int month, int day) {
+		Calendar date = Calendar.getInstance();
+		date.set(Calendar.DATE, day);
+		
+		date.set(Calendar.MONTH, month);
+		
+		date.set(Calendar.YEAR, year);
+		
+		return date;
 	}
 
 	public long getId() {
 		return id;
 	}
 
-
+	public Calendar getDate() {
+		return date;
+	}
+	
 	public Collection<Recipe> getRecipes() {
 		return recipes;
 	}

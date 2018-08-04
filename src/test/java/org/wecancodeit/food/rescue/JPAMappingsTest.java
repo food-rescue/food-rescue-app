@@ -4,12 +4,15 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.greaterThan;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.GregorianCalendar;
 import java.util.Optional;
 
 import javax.annotation.Resource;
@@ -42,9 +45,19 @@ public class JPAMappingsTest {
 	@Resource
 	private CartRepository cartRepo;
 
+	
+	@Test
+	public void shouldGetCalendarItems() {
+		Calendar day1 = new GregorianCalendar(2018,8,4);
+		
+		assertEquals(4, day1.get(Calendar.DATE));
+		assertEquals(2018, day1.get(Calendar.YEAR));
+		assertEquals(8, day1.get(Calendar.MONTH));
+	}
+	
 	@Test
 	public void shouldSaveAndLoadAnItem() {
-		Item item = new Item("Item Name", "");
+		Item item = new Item("Item Name", "", new GregorianCalendar(2018,8,04));
 		itemRepo.save(item);
 
 		long itemId = item.getId();
@@ -57,11 +70,14 @@ public class JPAMappingsTest {
 
 		assertThat(item.getItemName(), is("Item Name"));
 		assertTrue(result.isPresent());
+		assertEquals(4,item.getDate().get(Calendar.DATE));
+		assertEquals(8,item.getDate().get(Calendar.MONTH));
+		assertEquals(2018,item.getDate().get(Calendar.YEAR));
 	}
 
 	@Test
 	public void shouldGenerateItemId() {
-		Item item = new Item("Item Name", "");
+		Item item = new Item("Item Name", "", new GregorianCalendar(5,9,2019));
 		itemRepo.save(item);
 
 		long itemId = item.getId();
@@ -74,10 +90,10 @@ public class JPAMappingsTest {
 
 	@Test
 	public void shouldBeAbleToReturnAFullInventory() {
-		Item item1 = new Item("Item1 Name", "");
+		Item item1 = new Item("Item1 Name", "", new GregorianCalendar(5,9,2019));
 		itemRepo.save(item1);
 
-		Item item2 = new Item("Item2 Name", "");
+		Item item2 = new Item("Item2 Name", "", new GregorianCalendar(5,9,2019));
 		itemRepo.save(item2);
 
 		entityManager.flush();
@@ -90,7 +106,7 @@ public class JPAMappingsTest {
 
 	@Test
 	public void shouldBeAbleToRemoveAnItem() {
-		Item item = new Item("Item Name", "Item Image");
+		Item item = new Item("Item Name", "Item Image", new GregorianCalendar(5,9,2019));
 		itemRepo.save(item);
 
 		long itemId = item.getId();
@@ -107,7 +123,7 @@ public class JPAMappingsTest {
 
 	@Test
 	public void shouldFindItemByName() {
-		Item item = new Item("Item Name", "Item Image");
+		Item item = new Item("Item Name", "Item Image", new GregorianCalendar(5,9,2019));
 		itemRepo.save(item);
 
 		String itemName = item.getItemName();
@@ -152,8 +168,8 @@ public class JPAMappingsTest {
 
 	@Test
 	public void shouldSaveAndLoadARecipe() {
-		Item item1 = new Item("bread", "");
-		Item item2 = new Item("cheese", "");
+		Item item1 = new Item("bread", "", new GregorianCalendar(5,9,2019));
+		Item item2 = new Item("cheese", "", new GregorianCalendar(5,9,2019));
 		Tag tag = new Tag("lunch");
 
 		tagRepo.save(tag);
@@ -183,7 +199,7 @@ public class JPAMappingsTest {
 
 	@Test
 	public void shouldEstablishRecipeToItemRelationship() {
-		Item item = new Item("", "");
+		Item item = new Item("", "", new GregorianCalendar(5,9,2019));
 		itemRepo.save(item);
 
 		Tag tag = new Tag("");
@@ -205,7 +221,7 @@ public class JPAMappingsTest {
 
 	@Test
 	public void shouldEstablishItemToRecipeRelationship() {
-		Item item = new Item("", "");
+		Item item = new Item("", "", new GregorianCalendar(5,9,2019));
 		itemRepo.save(item);
 
 		Tag tag = new Tag("");
@@ -226,7 +242,7 @@ public class JPAMappingsTest {
 	
 	@Test
 	public void shouldEstablishRecipeToTagRelationship() {
-		Item item = new Item("", "");
+		Item item = new Item("", "", new GregorianCalendar(5,9,2019));
 		itemRepo.save(item);
 
 		Tag tag = new Tag("");
@@ -247,7 +263,7 @@ public class JPAMappingsTest {
 	
 	@Test
 	public void shouldEstablishTagToRecipeRelationship() {
-		Item item = new Item("", "");
+		Item item = new Item("", "", new GregorianCalendar(5,9,2019));
 		itemRepo.save(item);
 
 		Tag tag = new Tag("");
@@ -320,8 +336,8 @@ public class JPAMappingsTest {
 	
 	@Test
 	public void shouldReturnMatchedItems() {
-		Item item1 = new Item("Item1", "");
-		Item item2 = new Item("Item2", "");
+		Item item1 = new Item("Item1", "", new GregorianCalendar(5,9,2019));
+		Item item2 = new Item("Item2", "", new GregorianCalendar(5,9,2019));
 		itemRepo.save(item1);
 		itemRepo.save(item2);
 		
@@ -352,7 +368,7 @@ public class JPAMappingsTest {
 	
 	@Test
 	public void shouldSaveAndLoadAnItemToTheCart() {
-		Item item = new Item("Item Name", "");
+		Item item = new Item("Item Name", "", new GregorianCalendar(5,9,2019));
 		itemRepo.save(item);
 		
 		Cart cart = new Cart(item);
