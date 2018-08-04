@@ -38,6 +38,9 @@ public class JPAMappingsTest {
 	
 	@Resource
 	private InventoryRepository inventoryRepo;
+	
+	@Resource
+	private CartRepository cartRepo;
 
 	@Test
 	public void shouldSaveAndLoadAnItem() {
@@ -345,6 +348,42 @@ public class JPAMappingsTest {
 		}
 		
 		assertThat(matchedItems, containsInAnyOrder(item1));
-		
 	}
+	
+	@Test
+	public void shouldSaveAndLoadAnItemToTheCart() {
+		Item item = new Item("Item Name", "");
+		itemRepo.save(item);
+		
+		Cart cart = new Cart(item);
+		cartRepo.save(cart);
+
+		long cartId = cart.getId();
+
+		entityManager.flush();
+		entityManager.clear();
+
+		Optional<Cart> result = cartRepo.findById(cartId);
+		cart = result.get();
+
+		assertThat(cart.getItem().getItemName(), is("Item Name"));
+		assertTrue(result.isPresent());
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.thymeleaf.org">
+<head>
+	<title>Cart Items</title>
+</head>
+<body>
+	<h1>Cart Items</h1>
+
+	<div th:each="cart: ${cartModel}">
+	
+		<ul>
+			<li th:text="${cart.item.itemName}"></li>
+		</ul>
+		
+		
+	</div>
+	
+	<button onclick="goBack()">Back to Recipe</button>
+
+	<script>
+	function goBack() {
+    	window.history.go(-2);
+	}
+	</script>
+
+</body>
+</html>
