@@ -18,6 +18,9 @@ public class FoodRescueControllerTest {
 
 	@InjectMocks
 	private FoodRescueController underTest;
+	
+	@InjectMocks
+	private CartController cartUnderTest;
 
 	@Mock
 	private ItemRepository itemRepo;
@@ -148,7 +151,7 @@ public class FoodRescueControllerTest {
 	public void shouldAddItemsToCartModel() {
 		Collection<Cart> cartItems = Arrays.asList(cartItem1, cartItem2);
 		when(cartRepo.findAll()).thenReturn(cartItems);
-		underTest.findAllCartItems(model);
+		cartUnderTest.findAllCartItems(model);
 
 		verify(model).addAttribute("cartModel", cartItems);
 	}
