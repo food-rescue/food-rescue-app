@@ -36,6 +36,9 @@ public class FoodRescueControllerMockMvcTest {
 
 	@MockBean
 	private InventoryRepository inventoryRepo;
+	
+	@MockBean
+	private CartRepository cartRepo;
 
 	@Mock
 	private Item item;
