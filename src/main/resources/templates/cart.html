@@ -50,6 +50,11 @@
 	<div class="grid-item inventory">
 
 		<h3>Kitchen Inventory</h3>
+		<ul>
+		<li th:each="inventoryItem : ${inventoryItemsModel}">
+            		<a th:href="@{/inventoryItem(id=${inventoryItem.id})}" th:text="${inventoryItem.inventoryItemName}"></a>  
+        </li>
+        </ul>	  
 
 	</div>
 	

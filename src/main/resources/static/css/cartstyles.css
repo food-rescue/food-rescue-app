@@ -1,18 +1,18 @@
 *{
-	Line-height: 1.618em;
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-	
+  Line-height: 1.618em;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  
 }
 
 body {
-	margin: 40px;	
-	background: linear-gradient(#465c8b, #f7ef6a);
-	background-repeat: no-repeat;
-   	background-size: cover;
-   	color: white;
-   	transition: background-color .5s;
+  margin: 40px; 
+  background: linear-gradient(#465c8b, #f7ef6a);
+  background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    transition: background-color .5s;
 
 }
 
@@ -32,13 +32,13 @@ body {
 }
 
 .header {
- 	display: flex;
-	grid-column: 1/-1;
-	justify-content: center; 
-	align-content: space-around;
-	font-family: 'Merienda', cursive, sans-serif;
-	font-size: 100px;
-	background-color: #93C178;	
+  display: flex;
+  grid-column: 1/-1;
+  justify-content: center; 
+  align-content: space-around;
+  font-family: 'Merienda', cursive, sans-serif;
+  font-size: 100px;
+  background-color: #93C178;  
 }
 
 li
@@ -47,19 +47,28 @@ li
 }
 
 .list-checkmarks {
-  	padding-left:1.5rem;
+    padding-left:1.5rem;
 }
 
 .list-checkmarks li {
-  	list-style-type:none;
-  	padding-left:1rem;
+    list-style-type:none;
+    padding-left:1rem;
 }
 
-.list-checkmarks li:before {    
-	font-family: 'FontAwesome';
-	content: "\f00c";
-	margin:0 10px 0 -28px;
-	color: #17aa1c;
+.list-checkmarks li:before {
+  font-family: 'FontAwesome';
+  content: "\f00c";
+  margin:0 10px 0 -28px;
+  color: #17aa1c;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 175px;
+  height: 175px;
+  margin: 0px 50px;
 }
 
 .sidenav {
