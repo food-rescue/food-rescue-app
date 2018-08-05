@@ -2,8 +2,7 @@
 	Line-height: 1.618em;
 	box-sizing: border-box;
 	margin: 0;
-	padding: 0;
-	
+	padding: 0;	
 }
 
 body {
@@ -13,7 +12,6 @@ body {
    	background-size: cover;
    	color: white;
    	transition: background-color .5s;
-
 }
 
 .grid-container {
@@ -24,8 +22,7 @@ body {
 }
 
 .grid-item {
-	box-shadow: 10px 10px 5px -5px rgba(60,78,119,0.71);
-	
+	box-shadow: 10px 10px 5px -5px rgba(60,78,119,0.71);	
 }
 
 
@@ -42,7 +39,6 @@ body {
 .marquee{
 	display: flex;
 	grid-column: 1/-1;
-
 }
 
 h1 {
@@ -191,6 +187,11 @@ button {
 button:hover {
     background-color: #ff4500;
     color: white;
+}
+
+.food-list-buttons {
+	display: flex;
+	flex-direction: row;	
 }
 
  
