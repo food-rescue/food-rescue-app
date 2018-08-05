@@ -1,19 +1,56 @@
 <!DOCTYPE html>
+<html>
 
-<html xmlns="http://www.thymeleaf.org">
 <head>
-	<title>Cart Items</title>
+  <link rel="stylesheet" type="text/css" href="/css/cartstyles.css">
+  <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300%7CRoboto" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href = "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Food Rescue</title>
 </head>
+
 <body>
-	<h1>Cart Items</h1>
+
+	<div class="grid-container">
+
+  	<header class="grid-item header" > 
+
+  	<div id="mySidenav" class="sidenav">
+   		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+   		<a href="http://localhost:8080/show-recipes">Recipes</a>
+   		<a href="#">Shopping Cart</a>
+   		<a href="#">Food Banks</a>
+   		<a href="https://www.webmd.com/diet/printable/portion-control-size-guide">Healthy Portions</a>
+   		<a href="#">About Us</a>
+ 	</div>
+
+ 	<div id="main">
+   		<span style="font-size: 30px;cursor:pointer;" onclick="openNav()">&#9776;</span>
+ 	</div> 		
+
+  		Food<img class = "logo" img src="/images/Logo.jpg"></img>Rescue
+  	</header>
+
+  	<div class="grid-item list">
+
+  		<h3>Shopping List</h3>
 
 	<div th:each="cart: ${cartModel}">
 	
 		<ul>
 			<li th:text="${cart.item.itemName}"></li>
 		</ul>
-		
-		
+	</div>
+
+	</div>
+
+	<div class="grid-item inventory">
+
+		<h3>Kitchen Inventory</h3>
+
 	</div>
 	
 	<button onclick="goBack()">Back to Recipe</button>
@@ -23,6 +60,8 @@
     	window.history.go(-2);
 	}
 	</script>
+
+	<script src = "./js/indexstyles.js"></script>
 
 </body>
 </html>
