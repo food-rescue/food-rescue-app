@@ -3,13 +3,21 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
+ <link rel="stylesheet" type="text/css" href="/css/indexstylestwo.css">
+ <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300%7CRoboto" rel="stylesheet">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link href = "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<title>A Single Item</title>
 </head>
 <body>
+<header class="grid-item header" > 
+  		Food<img class = "logo" img src="/images/Logo.jpg"></img>Rescue
+  	</header>
 
 	<div th:each="item: ${itemsModel}">
-		<h2 th:text="${item.itemName}"></h2>
-		<img id="" th:src = "${item.itemImage}">
+		<h2 class="recipeName" th:text="${item.itemName}"></h2>
+		<img class="recipeImage" th:src = "${item.itemImage}">
 
 		<div th:each="recipe: ${item.recipes}">
 			<a th:href="@{/recipe(id=${recipe.id})}" th:text="${recipe.recipeName}"></a>
@@ -22,8 +30,9 @@
 		
 	</div>
 
-<a href="http://localhost:8080/show-items">Back to Items View</a>
-
-
+<a class="itemsView" href="http://localhost:8080/show-items">Back to Items View</a>
+<footer class="grid-item footer">&copyFlexCode2018 <a href="https://github.com/food-rescue/food-rescue-app" class="fa fa-github-square"></a>
+ 		</footer>
+</div>
 </body>
 </html>
