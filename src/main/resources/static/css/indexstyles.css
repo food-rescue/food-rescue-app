@@ -30,7 +30,7 @@ body {
 	display: flex;
 	grid-column: 1/-1;
 	justify-content: center; 
-	align-content: space-around;
+	align-items: center;
 	font-family: 'Merienda', cursive, sans-serif;
 	font-size: 100px;
 	background-color: #93C178;	
@@ -274,6 +274,7 @@ button:hover {
   margin-left: 50px;
 }
 
+
 #main {
   transition: margin-left 0.5s;
   padding: 16px;
@@ -287,4 +288,51 @@ button:hover {
 @mediascreen and (max-height: 450px) {
   .sidenav{padding-top: 15px;}
   .sidenav a{font-size: 18px;}
+}
+
+
+.recipes {
+    float: left;
+    overflow: hidden;
+}
+
+.recipes .dropbtn {
+    font-size: 16px;    
+    border: none;
+    outline: none;
+    color: white;
+    padding: 8px 8px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.navbar a:hover, .recipes:hover .dropbtn {
+    background-color: red;
+}
+
+.recipes-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.recipes-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.recipes-content a:hover {
+    background-color: #ddd;
+}
+
+.recipes:hover .recipes-content {
+    display: block;
 }
