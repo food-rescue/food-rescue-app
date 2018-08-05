@@ -1,5 +1,6 @@
   <li th:each="inventoryItem : ${inventoryItemsModel}">
    	<p th:text="${inventoryItem.inventoryItemName}"></p> 
+   	<a id="x" th:value="${inventoryItem.id}">&times;</a>
 </li>
 
 <h3 id="more-food">Add more food or go to recipes</h3>           

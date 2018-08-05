@@ -62,7 +62,7 @@
           	<ul class="list-display list-checkmarks">
             	<li th:each="inventoryItem : ${inventoryItemsModel}">
             		<p th:text="${inventoryItem.inventoryItemName}"></p>
-            		<button id="x" th:value="${inventoryItem.id}">&times;</button>  
+            		<a id="x" th:value="${inventoryItem.id}">&times;</a>  
             	</li>	            	    
           	</ul> 
           	
