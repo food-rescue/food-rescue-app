@@ -16,12 +16,27 @@
 
 	<div class="grid-container">
 
+
   	<header class="grid-item header" > 
 
   	<div id="mySidenav" class="sidenav">
    		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-   		<a href="http://localhost:8080/show-recipes">Recipes</a>
-   		<a href="#">Shopping Cart</a>
+   		
+   		<div class="recipes">
+   			<button class="dropbtn">
+   		<a href="http://localhost:8080/show-recipes">Recipes </a> 		
+   			<!-- <button class="dropbtn"> -->
+   				<i class= "fa fa-caret-down"></i>
+   			</button>
+   			<div class="recipes-content">
+   				<a href="http://localhost:8080/tag?id=15">Breakfast</a>
+   				<a href="http://localhost:8080/tag?id=17">Lunch</a>
+   				<a href="http://localhost:8080/tag?id=16">Dinner</a>
+   				<a href="http://localhost:8080/tag?id=18">Snack</a>
+   			</div>
+   		</div>
+
+   		<a href="#">Shopping List</a>
    		<a href="#">Food Banks</a>
    		<a href="https://www.webmd.com/diet/printable/portion-control-size-guide">Healthy Portions</a>
    		<a href="#">About Us</a>
@@ -29,7 +44,7 @@
 
  	<div id="main">
    		<span style="font-size: 30px;cursor:pointer;" onclick="openNav()">&#9776;</span>
- 	</div> 		
+ 	</div> 	
 
   		Food<img class = "logo" img src="/images/Logo.jpg"></img>Rescue
   	</header>
