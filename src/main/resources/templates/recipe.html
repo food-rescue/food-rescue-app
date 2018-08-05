@@ -3,11 +3,54 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
+
 <title>A Single Recipe</title>
+ <link rel="stylesheet" type="text/css" href="/css/recipenav.css">
+ <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300%7CRoboto" rel="stylesheet">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link href = "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<title>A Single Recipe</title>
 </head>
 <body>
+	<div class="grid-container">
 
+	<header class="grid-item header" > 
+
+		<div id="mySidenav" class="sidenav">
+   		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+   		
+   		<div class="recipes">
+   			<button class="dropbtn">
+   		<a href="http://localhost:8080/show-recipes">Recipes </a> 		
+   			<!-- <button class="dropbtn"> -->
+   				<i class= "fa fa-caret-down"></i>
+   			</button>
+   			<div class="recipes-content">
+   				<a href="http://localhost:8080/tag?id=15">Breakfast</a>
+   				<a href="http://localhost:8080/tag?id=17">Lunch</a>
+   				<a href="http://localhost:8080/tag?id=16">Dinner</a>
+   				<a href="http://localhost:8080/tag?id=18">Snack</a>
+   			</div>
+   		</div>
+
+   		<a href="#">Shopping List</a>
+   		<a href="#">Food Banks</a>
+   		<a href="https://www.webmd.com/diet/printable/portion-control-size-guide">Healthy Portions</a>
+   		<a href="http://localhost:8080/home">Home</a>
+ 	</div>
+
+ 	<div id="main">
+   		<span style="font-size: 30px;cursor:pointer;" onclick="openNav()">&#9776;</span>
+ 	</div> 	
+
+  		Food<img class = "logo" img src="/images/Logo.jpg"></img>Rescue
+  	</header>
+  	
+<div class="grid-item-recipe">
 	<div th:each="recipe: ${recipesModel}">
+    
 		<h2 th:text="${recipe.recipeName}"></h2>
 		<img id="" th:src="${recipe.image}">
 
@@ -19,8 +62,8 @@
 				<li th:each="item: ${recipe.items}"><a
 					th:href="@{/item(id=${item.id})}" th:text="${item.itemName}"></a> <!-- <span th:text="${item.itemName}"></span> -->
 
-					<button id="x" name="itemId" th:value="${item.id}"
-						th:formaction="@{add-item-to-cart-button}">&times;</button>
+					<button onClick="if(!confirm('Add this item to your shopping list?')){return false;}" id="add" name="itemId" th:value="${item.id}"
+					th:formaction="@{add-item-to-cart-button}">Add To List</button>
 			</ul>
 		</form>
 
@@ -32,9 +75,27 @@
 			<a th:href="@{/tag(id=${tag.id})}" th:text="${recipe.tag.meal}"></a>
 		</div>
 
+		<h2 class="recipeName" th:text="${recipe.recipeName}"></h2>
+		<img class="recipeImage" th:src = "${recipe.image}">
+		<p class="recipeInstructions" th:text="${recipe.instructions}"></p>
+
+		<div  class="recipeTag" th:each="tag: ${recipe.tag}">
+			<a  th:href="@{/tag(id=${tag.id})}" th:text="${recipe.tag.meal} "></a>
+		</div>
+
+		<div class="recipeTag" th:each="item: ${recipe.items}">
+			<a th:href="@{/item(id=${item.id})}" th:text="${item.itemName}"></a>
+		</div>
+
 	</div>
 
 	<a href="http://localhost:8080/show-recipes">Back to Recipes View</a>
+
+<footer class="grid-item footer">&copyFlexCode2018 <a href="https://github.com/food-rescue/food-rescue-app" class="fa fa-github-square"></a>
+ 		</footer>
+</div>
+
+<script src = "./js/indexstyles.js"></script>
 
 </body>
 </html>
