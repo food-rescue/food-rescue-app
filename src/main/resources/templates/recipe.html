@@ -52,13 +52,13 @@
 	<div th:each="recipe: ${recipesModel}">
     
 		<h2 th:text="${recipe.recipeName}"></h2>
-		<img id="" th:src="${recipe.image}">
+		<img class="recipeImage" th:src = "${recipe.image}">
 
 		<h3>Ingredients:</h3>
 
 		<form method="POST">
 			<input name="recipeId" type="hidden" th:value="${recipe.id}" />
-			<ul>
+			<ul style="list-style-type:none">
 				<li th:each="item: ${recipe.items}"><a
 					th:href="@{/item(id=${item.id})}" th:text="${item.itemName}"></a> <!-- <span th:text="${item.itemName}"></span> -->
 
@@ -68,24 +68,13 @@
 		</form>
 
 		<h3>Preparation:</h3>
-		<p th:text="${recipe.instructions}"></p>
-
-		<h4>Tag:</h4>
-		<div th:each="tag: ${recipe.tag}">
-			<a th:href="@{/tag(id=${tag.id})}" th:text="${recipe.tag.meal}"></a>
-		</div>
-
-		<h2 class="recipeName" th:text="${recipe.recipeName}"></h2>
-		<img class="recipeImage" th:src = "${recipe.image}">
 		<p class="recipeInstructions" th:text="${recipe.instructions}"></p>
 
+		<h4>Tag:</h4>
 		<div  class="recipeTag" th:each="tag: ${recipe.tag}">
 			<a  th:href="@{/tag(id=${tag.id})}" th:text="${recipe.tag.meal} "></a>
 		</div>
 
-		<div class="recipeTag" th:each="item: ${recipe.items}">
-			<a th:href="@{/item(id=${item.id})}" th:text="${item.itemName}"></a>
-		</div>
 
 	</div>
 
