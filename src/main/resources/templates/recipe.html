@@ -26,13 +26,19 @@
 			<ul>
 				<li th:each="item: ${recipe.items}"><span
 					th:text="${item.itemName}"></span>
-					<button id="x" name="itemId" th:value="${item.id}"
-						th:formaction="@{add-item-to-cart-button}">&times;</button>
+					
+					
+		
+			<button onClick="if(!confirm('Add this item to your shopping list?')){return false;}" id="add" name="itemId" th:value="${item.id}"
+					th:formaction="@{add-item-to-cart-button}">Add To List</button>
+					
+				
+			
 			</ul>
 		</form>
 		
-		
-		
+
+
 	</div>
 
 <a href="http://localhost:8080/show-recipes">Back to Recipes View</a>
