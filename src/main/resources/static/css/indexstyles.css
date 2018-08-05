@@ -33,7 +33,7 @@ body {
 	display: flex;
 	grid-column: 1/-1;
 	justify-content: center; 
-	align-content: space-around;
+	align-items: center;
 	font-family: 'Merienda', cursive, sans-serif;
 	font-size: 100px;
 	background-color: #93C178;	
