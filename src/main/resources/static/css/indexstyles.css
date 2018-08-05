@@ -197,8 +197,8 @@ button:hover {
 .food-list-buttons {
 	display: flex;
 	justify-content: space-between;
-	
 }
+
 
 #more-food {
 	padding-top: 50px;
@@ -336,3 +336,4 @@ button:hover {
 .recipes:hover .recipes-content {
     display: block;
 }
+
