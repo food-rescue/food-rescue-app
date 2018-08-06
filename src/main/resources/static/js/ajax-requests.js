@@ -2,7 +2,7 @@ const addFoodButton = document.querySelector('.add-food button');
 const addFoodInput = document.querySelector('.add-food input');
 const foodList = document.querySelector('.food-list ul');
 const clearInventoryButton = document.querySelector('.food-list button');
-const removeInventoryItemX = document.getElementById('x');
+const removeInventoryItemX = document.getElementById('.food-list x');
 
 
 const xhr = new XMLHttpRequest();

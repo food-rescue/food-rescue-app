@@ -1,0 +1,3 @@
+<li th:each="inventoryItem : ${inventoryItemsModel}">
+   <a th:href="@{/inventoryItem(id=${inventoryItem.id})}" th:text="${inventoryItem.inventoryItemName}"></a> 
+</li>

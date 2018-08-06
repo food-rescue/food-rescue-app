@@ -8,4 +8,8 @@ public interface InventoryRepository extends CrudRepository<InventoryItem, Long>
 
 	InventoryItem findByInventoryItemNameIgnoreCaseLike(String inventoryItemName);
 
+	InventoryItem deleteByName(String foodToDelete);
+
+	String deleteByName(InventoryItem foodToDelete);
+
 }
