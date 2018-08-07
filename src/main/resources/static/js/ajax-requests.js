@@ -41,7 +41,7 @@ function removeFoodList(){
 	xhr.send()
 }
 
-function removeFoodItem(inventoryItemName) {
+function removeFoodItem(inventoryItemId) {
 	xhr.open('POST', '/index/food-list' + inventoryItemName, true)	
 	xhr.send()
 }
