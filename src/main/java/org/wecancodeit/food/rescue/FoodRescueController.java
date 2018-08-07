@@ -194,8 +194,7 @@ public class FoodRescueController {
 	@RequestMapping(path = "/index/food-list/{inventoryItem.id}", method = RequestMethod.POST)
 	public String deleteOneInventoryItem(Model model) {
 		
-		InventoryItem foodToDelete = inventoryRepo.findById(id);
-		
+		InventoryItem foodToDelete = inventoryRepo.findById();		
 		inventoryRepo.delete(foodToDelete);
 		model.addAttribute("inventoryItemsModel", inventoryRepo.findAll());
 		
