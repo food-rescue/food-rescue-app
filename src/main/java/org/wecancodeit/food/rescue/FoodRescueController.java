@@ -185,16 +185,18 @@ public class FoodRescueController {
 	
 	@RequestMapping(path = "/index/show-inventory", method = RequestMethod.POST)
 	public String showAllInventoryItems(Model model) {
+		
 			model.addAttribute("inventoryItemsModel", inventoryRepo.findAll());
 		
 			return "partials/food-list-added";
 	}
 	
 	@RequestMapping(path = "/index/food-list/{inventoryItem.id}", method = RequestMethod.POST)
-	public String deleteOneInventoryItem(@RequestParam(value = "id") long inventoryItemId, Model model) {
-		InventoryItem foodToDelete = inventoryRepo.findByInventoryItemId(inventoryItemId);
+	public String deleteOneInventoryItem(Model model) {
 		
-		inventoryRepo.deleteById(foodToDelete);
+		InventoryItem foodToDelete = inventoryRepo.findById(id);
+		
+		inventoryRepo.delete(foodToDelete);
 		model.addAttribute("inventoryItemsModel", inventoryRepo.findAll());
 		
 		return "partials/food-list-item-deleted";
