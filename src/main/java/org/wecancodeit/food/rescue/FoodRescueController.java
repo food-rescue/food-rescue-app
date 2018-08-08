@@ -192,11 +192,13 @@ public class FoodRescueController {
 	}
 	
 	@RequestMapping("/delete-inventoryItem")
-	public String deleteInventoryItem(Long inventoryItemId) {
+	public String deleteInventoryItem(@RequestParam Long inventoryItemId) {
 		
-		inventoryRepo.deleteById(inventoryItemId);
+		Optional<InventoryItem> inventoryItemResult = inventoryRepo.findById(inventoryItemId);
+		InventoryItem inventoryItem = inventoryItemResult.get();
+		inventoryRepo.delete(inventoryItem);
 		
-		return "redirect:/index/food-list";
+		return "redirect:/home";
 	}
 		
 }
