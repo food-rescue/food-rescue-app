@@ -39,6 +39,12 @@ body {
 .marquee{
 	display: flex;
 	grid-column: 1/-1;
+	position: absolute;
+	box-shadow: none;
+	padding-top: .05em;
+	padding-bottom: .05em;
+	z-index: 100;
+	l
 }
 
 h1 {

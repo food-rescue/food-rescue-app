@@ -12,20 +12,37 @@
 </head>
 <body>
 <header class="grid-item header" > 
+	<div id="mySidenav" class="sidenav">
+   		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+   		
+   		<div class="recipes">
+   			<button class="dropbtn">
+   		<a href="http://localhost:8080/show-recipes">Recipes </a> 		
+   			<!-- <button class="dropbtn"> -->
+   				<i class= "fa fa-caret-down"></i>
+   			</button>
+   			<div class="recipes-content">
+   				<a href="http://localhost:8080/tag?id=39">Breakfast</a>
+   				<a href="http://localhost:8080/tag?id=41">Lunch</a>
+   				<a href="http://localhost:8080/tag?id=40">Dinner</a>
+   				<a href="http://localhost:8080/tag?id=42">Snack</a>
+   			</div>
+   		</div>
+
+   		<a href="#">Shopping List</a>
+   		<a href="#">Food Banks</a>
+   		<a href="https://www.choosemyplate.gov/">Healthy Portions</a>
+   		<a href="http://localhost:8080/home">Home</a>
+ 	</div>
+
+ 	<div id="main">
+   		<span style="font-size: 30px;cursor:pointer;" onclick="openNav()">&#9776;</span>
+ 	</div> 	
+
+	
   		Food<img class = "logo" img src="/images/Logo.jpg"></img>Rescue
   	</header>
   	
-  	
-<div id="mySidenav" class="sidenav">
-   		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-   		<a href="http://localhost:8080/home">Home</a>
-   		<a href="#">Shopping Cart</a>
-   		<a href="#">Food Banks</a>
-   		<a href="https://www.webmd.com/diet/printable/portion-control-size-guide">Healthy Portions</a>
-   		<a href="#">About Us</a>
- 	</div>
-
-	
 	<h1>All Recipes</h1>
 
 	<div th:each="recipe: ${recipesModel}">
@@ -38,7 +55,10 @@
 <footer class="grid-item footer">&copyFlexCode2018 <a href="https://github.com/food-rescue/food-rescue-app" class="fa fa-github-square"></a>
  		</footer>
  		
- <script src = "./js/indexstyles.js"></script>
+ 
 </div>
+
+<script src = "./js/indexstyles.js"></script>
+
 </body>
 </html>
