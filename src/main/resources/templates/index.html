@@ -76,10 +76,12 @@
        
         <section class="food-list"> 
        		<h2>Food On-Hand:</h2>     
-          	<ul class="list-display list-checkmarks">
+  			<ul class="list-display list-checkmarks">
             	<li th:each="inventoryItem : ${inventoryItemsModel}">
-            		<p th:text="${inventoryItem.inventoryItemName}"></p>
-            		<a id="x" th:value="${inventoryItem.id}">&times;</a>  
+            		<p th:text="${inventoryItem.inventoryItemName}"></p>            		
+						<form method = "POST">
+            			<button id="x" type="submit" th:value="${inventoryItem.id}" name="inventoryItemId" th:formaction="@{delete-inventoryItem}">&times;</button>
+            			</form>
             	</li>	            	    
           	</ul> 
           	

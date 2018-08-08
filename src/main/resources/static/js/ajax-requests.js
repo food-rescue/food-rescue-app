@@ -2,7 +2,7 @@ const addFoodButton = document.querySelector('.add-food button');
 const addFoodInput = document.querySelector('.add-food input');
 const foodList = document.querySelector('.food-list ul');
 const clearInventoryButton = document.querySelector('.food-list button');
-const removeInventoryItemX = document.getElementById('.food-list x');
+
 
 
 const xhr = new XMLHttpRequest();
@@ -26,9 +26,7 @@ clearInventoryButton.addEventListener('click', function() {
 	removeFoodList()	
 })
 
-removeInventoryItemX.addEventListener('click', function() {
-	removeFoodItem()
-})
+
 
 
 function postFoodList(inventoryItemName){
@@ -41,10 +39,7 @@ function removeFoodList(){
 	xhr.send()
 }
 
-function removeFoodItem(inventoryItemId) {
-	xhr.open('POST', '/index/food-list' + inventoryItemName, true)	
-	xhr.send()
-}
+
 
 
 
