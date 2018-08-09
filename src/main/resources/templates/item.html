@@ -8,6 +8,8 @@
  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300%7CRoboto" rel="stylesheet">
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
  <link href = "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
 	<title>A Single Item</title>
 </head>
 <body>
@@ -30,7 +32,7 @@
    			</div>
    		</div>
 
-   		<a href="#">Shopping List</a>
+   		<a href="http://localhost:8080/cart">Shopping List</a>
    		<a href="#">Food Banks</a>
    		<a href="https://www.choosemyplate.gov/">Healthy Portions</a>
    		<a href="http://localhost:8080/home">Home</a>
@@ -46,16 +48,22 @@
 		<h2 class="recipeName" th:text="${item.itemName}"></h2>
 		<img class="recipeImage" th:src = "${item.itemImage}">
 
-       
+      
 
-       <button id="myBtn">Food freshness tips</button>
-      <div id= "document.getElementById(item?id=1)"  class="modal">
-         <div class="modal-content">
-         <span class="close">&times;</span>
-         <p>Avocado : You can brush your avocado's flesh with lemon juice -- the citric acid in the lemon juice dramatically slows the browning process. Store in an airtight container for extra protection.</p>
+   <!-- Trigger/Open The Modal -->
+<button id="myBtn">Food Freshness tips</button>
 
-      </div>
-   </div>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p class="recipeName" th:text="${item.itemName}">Avocado : You can brush your avocado's flesh with lemon juice -- the citric acid in the lemon juice dramatically slows the browning process. Store in an airtight container for extra protection.
+</p>
+  </div>
+
+</div>
 
 
 		<div th:each="recipe: ${item.recipes}">
@@ -64,9 +72,9 @@
 		
 		<form method="Post">
 			<input name="id" type="hidden" th:value="${item.id}" />
-			<button th:formaction="@{/add-item}">Add Item to Cart</button>
+			<button  th:formaction="@{/add-item}"><img  src="/images/shopping-cart-button(2).png"></i></button>
 		</form>
-		
+
 	</div>
 
 <a class="itemsView" href="http://localhost:8080/show-items">Back to Items View</a>
