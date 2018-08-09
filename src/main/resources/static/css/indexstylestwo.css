@@ -190,14 +190,6 @@ h2 {
  	margin-right: auto;
 }
 
-.add-item-to-cart-button {
-	background: none;
-	border:none;
-	cursor: pointer;
-	padding-left: 5px;
-	color: white;
-	font-size: 25px;
-}
   
   .itemsView{
 	font-size: 28px; 

@@ -54,16 +54,16 @@
 		<h2 th:text="${recipe.recipeName}"></h2>
 		<img class="recipeImage" th:src = "${recipe.image}">
 
-		<h3>Ingredients:</h3>
+		<h3>Ingredients: (click on pencil to add to shopping list)</h3>
 
 		<form method="POST">
 			<input name="recipeId" type="hidden" th:value="${recipe.id}" />
-			<ul style="list-style-type:none">
+			<ul class="recipe-items">
 				<li th:each="item: ${recipe.items}"><a
 					th:href="@{/item(id=${item.id})}" th:text="${item.itemName}"></a> <!-- <span th:text="${item.itemName}"></span> -->
 
-					<button class="add-item-to-cart-button" onClick="if(!confirm('Add this item to your shopping list?')){return false;}" id="add" name="itemId" th:value="${item.id}"
-					th:formaction="@{add-item-to-cart-button}">Add To List</button>
+					<button class="add-to-list" onClick="if(!confirm('Add this item to your shopping list?')){return false;}" id="add" name="itemId" th:value="${item.id}"
+					th:formaction="@{add-item-to-cart-button}"> &#9998;</button>
 			</ul>
 		</form>
 
