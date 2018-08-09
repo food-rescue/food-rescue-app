@@ -6,6 +6,7 @@ import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -17,6 +18,10 @@ public class Item {
 	@GeneratedValue
 	private long id;
 	private String itemName;
+	
+	@Lob
+	private String itemTip; 
+	
 
 	@JsonIgnore
 	@ManyToMany(mappedBy = "items")
@@ -27,9 +32,10 @@ public class Item {
 
 	}
 
-	public Item(String itemName, String itemImage) {
+	public Item(String itemName, String itemImage, String itemTip) {
 		this.itemName = itemName;
 		this.setItemImage(itemImage);
+		this.itemTip = itemTip; 
 	}
 
 	public long getId() {
@@ -47,6 +53,10 @@ public class Item {
 	}
 	public String getItemImage() {
 		return itemImage;
+	}
+	
+	public String getTip() {
+		return itemTip; 
 	}
 	
 	public void setItemImage(String itemImage) {
