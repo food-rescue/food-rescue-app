@@ -44,7 +44,7 @@ public class JPAMappingsTest {
 
 	@Test
 	public void shouldSaveAndLoadAnItem() {
-		Item item = new Item("Item Name", "");
+		Item item = new Item("Item Name", "", "");
 		itemRepo.save(item);
 
 		long itemId = item.getId();
@@ -61,7 +61,7 @@ public class JPAMappingsTest {
 
 	@Test
 	public void shouldGenerateItemId() {
-		Item item = new Item("Item Name", "");
+		Item item = new Item("Item Name", "", "");
 		itemRepo.save(item);
 
 		long itemId = item.getId();
@@ -74,10 +74,10 @@ public class JPAMappingsTest {
 
 	@Test
 	public void shouldBeAbleToReturnAFullInventory() {
-		Item item1 = new Item("Item1 Name", "");
+		Item item1 = new Item("Item1 Name", "", "");
 		itemRepo.save(item1);
 
-		Item item2 = new Item("Item2 Name", "");
+		Item item2 = new Item("Item2 Name", "", "");
 		itemRepo.save(item2);
 
 		entityManager.flush();
@@ -90,7 +90,7 @@ public class JPAMappingsTest {
 
 	@Test
 	public void shouldBeAbleToRemoveAnItem() {
-		Item item = new Item("Item Name", "Item Image");
+		Item item = new Item("Item Name", "Item Image", "Item Tip");
 		itemRepo.save(item);
 
 		long itemId = item.getId();
@@ -107,7 +107,8 @@ public class JPAMappingsTest {
 
 	@Test
 	public void shouldFindItemByName() {
-		Item item = new Item("Item Name", "Item Image");
+		Item item = new Item("Item Name", "Item Image", "Item Tip");
+		
 		itemRepo.save(item);
 
 		String itemName = item.getItemName();
@@ -152,8 +153,8 @@ public class JPAMappingsTest {
 
 	@Test
 	public void shouldSaveAndLoadARecipe() {
-		Item item1 = new Item("bread", "");
-		Item item2 = new Item("cheese", "");
+		Item item1 = new Item("bread", "", "");
+		Item item2 = new Item("cheese", "", "");
 		Tag tag = new Tag("lunch");
 
 		tagRepo.save(tag);
@@ -183,7 +184,7 @@ public class JPAMappingsTest {
 
 	@Test
 	public void shouldEstablishRecipeToItemRelationship() {
-		Item item = new Item("", "");
+		Item item = new Item("", "", "");
 		itemRepo.save(item);
 
 		Tag tag = new Tag("");
@@ -205,7 +206,7 @@ public class JPAMappingsTest {
 
 	@Test
 	public void shouldEstablishItemToRecipeRelationship() {
-		Item item = new Item("", "");
+		Item item = new Item("", "", "");
 		itemRepo.save(item);
 
 		Tag tag = new Tag("");
@@ -226,7 +227,7 @@ public class JPAMappingsTest {
 	
 	@Test
 	public void shouldEstablishRecipeToTagRelationship() {
-		Item item = new Item("", "");
+		Item item = new Item("", "", "");
 		itemRepo.save(item);
 
 		Tag tag = new Tag("");
@@ -247,7 +248,7 @@ public class JPAMappingsTest {
 	
 	@Test
 	public void shouldEstablishTagToRecipeRelationship() {
-		Item item = new Item("", "");
+		Item item = new Item("", "", "");
 		itemRepo.save(item);
 
 		Tag tag = new Tag("");
@@ -320,8 +321,8 @@ public class JPAMappingsTest {
 	
 	@Test
 	public void shouldReturnMatchedItems() {
-		Item item1 = new Item("Item1", "");
-		Item item2 = new Item("Item2", "");
+		Item item1 = new Item("Item1", "", "");
+		Item item2 = new Item("Item2", "", "");
 		itemRepo.save(item1);
 		itemRepo.save(item2);
 		
@@ -352,7 +353,7 @@ public class JPAMappingsTest {
 	
 	@Test
 	public void shouldSaveAndLoadAnItemToTheCart() {
-		Item item = new Item("Item Name", "");
+		Item item = new Item("Item Name", "", "");
 		itemRepo.save(item);
 		
 		Cart cart = new Cart(item);
