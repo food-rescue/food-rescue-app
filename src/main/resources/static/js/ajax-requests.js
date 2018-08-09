@@ -46,7 +46,7 @@ function removeFoodList(){
 
 function clickSound() {
 	soundOnClick.play();
-	soundOnClick.volume = 2;
+	soundOnClick.volume = 1;
 }
 
 
