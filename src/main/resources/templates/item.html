@@ -8,10 +8,39 @@
  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300%7CRoboto" rel="stylesheet">
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
  <link href = "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
 	<title>A Single Item</title>
 </head>
 <body>
 <header class="grid-item header" > 
+
+	<div id="mySidenav" class="sidenav">
+   		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+   		
+   		<div class="recipes">
+   			<button class="dropbtn">
+   		<a href="http://localhost:8080/show-recipes">Recipes </a> 		
+   			<!-- <button class="dropbtn"> -->
+   				<i class= "fa fa-caret-down"></i>
+   			</button>
+   			<div class="recipes-content">
+   				<a href="http://localhost:8080/tag?id=39">Breakfast</a>
+   				<a href="http://localhost:8080/tag?id=41">Lunch</a>
+   				<a href="http://localhost:8080/tag?id=40">Dinner</a>
+   				<a href="http://localhost:8080/tag?id=42">Snack</a>
+   			</div>
+   		</div>
+
+   		<a href="http://localhost:8080/cart">Shopping List</a>
+   		<a href="#">Food Banks</a>
+   		<a href="https://www.choosemyplate.gov/">Healthy Portions</a>
+   		<a href="http://localhost:8080/home">Home</a>
+ 	</div>
+
+ 	<div id="main">
+   		<span style="font-size: 30px;cursor:pointer;" onclick="openNav()">&#9776;</span>
+ 	</div> 	
   		Food<img class = "logo" img src="/images/Logo.jpg"></img>Rescue
   	</header>
 
@@ -19,20 +48,41 @@
 		<h2 class="recipeName" th:text="${item.itemName}"></h2>
 		<img class="recipeImage" th:src = "${item.itemImage}">
 
+      
+
+   <!-- Trigger/Open The Modal -->
+<button id="myBtn">Food Freshness tips</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p class="recipeName" th:text="${item.itemName}">Avocado : You can brush your avocado's flesh with lemon juice -- the citric acid in the lemon juice dramatically slows the browning process. Store in an airtight container for extra protection.
+</p>
+  </div>
+
+</div>
+
+
 		<div th:each="recipe: ${item.recipes}">
 			<a th:href="@{/recipe(id=${recipe.id})}" th:text="${recipe.recipeName}"></a>
 		</div>
 		
 		<form method="Post">
 			<input name="id" type="hidden" th:value="${item.id}" />
-			<button th:formaction="@{/add-item}">Add Item to Cart</button>
+			<button  th:formaction="@{/add-item}"><img  src="/images/shopping-cart-button(2).png"></i></button>
 		</form>
-		
+
 	</div>
 
 <a class="itemsView" href="http://localhost:8080/show-items">Back to Items View</a>
 <footer class="grid-item footer">&copyFlexCode2018 <a href="https://github.com/food-rescue/food-rescue-app" class="fa fa-github-square"></a>
  		</footer>
 </div>
+
+<script src = "./js/indexstyles.js"></script>
+
 </body>
 </html>
