@@ -2,8 +2,7 @@ const addFoodButton = document.querySelector('.add-food button');
 const addFoodInput = document.querySelector('.add-food input');
 const foodList = document.querySelector('.food-list ul');
 const clearInventoryButton = document.querySelector('.food-list button');
-
-
+const soundOnClick = document.querySelector('.playSound');
 
 const xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function(){
@@ -26,11 +25,15 @@ clearInventoryButton.addEventListener('click', function() {
 	removeFoodList()	
 })
 
+
 addFoodInput.addEventListener('keydown', function(event) {
-	//event.preventDefault();
-	if(event.keyCode === 13){
+		if(event.keyCode === 13){
 		document.querySelector('.add-food button').click()
 	}
+})
+
+soundOnClick.addEventListener('click', function() {
+	playSound()
 })
 
 
@@ -43,6 +46,13 @@ function removeFoodList(){
 	xhr.open('POST', '/index/clear-inventory', true)	
 	xhr.send()
 }
+
+function playSound() {
+	clickSound.play();
+	clickSound.volume = 0.3;
+}
+
+
 
 
 

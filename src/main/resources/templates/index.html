@@ -66,14 +66,19 @@
 
  	<div class="grid-item inventory">
       
+        <audio id="clickSound">
+  			<source src="Woosh-Mark_DiAngelo-4778593.mp3" type="audio/mpeg">
+  		</audio>  
+        
         <section class="add-food">
         	<h2>Food Inventory</h2>
           	<h3>Enter your food items here:</h3>
          	 <input type="text"/>
-          	<button>Add Food</button> 
-        </section>        
+          	<button class="playSound">Add Food</button> 
+        </section> 
         
-       
+  
+        
         <section class="food-list"> 
        		<h2>Food On-Hand:</h2>     
        		<form method = "POST">
