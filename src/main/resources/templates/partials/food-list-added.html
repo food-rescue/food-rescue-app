@@ -1,9 +1,17 @@
-  <li th:each="inventoryItem : ${inventoryItemsModel}">
-   	<p th:text="${inventoryItem.inventoryItemName}"></p> 
-   	<a id="x" th:value="${inventoryItem.id}">&times;</a>
-</li>
 
-<h3 id="more-food">Add more food or go to recipes:</h3>           
+<form method="POST">
+	<ul class="list-display list-checkmarks">
+		<li th:each="inventoryItem : ${inventoryItemsModel}">
+			<p th:text="${inventoryItem.inventoryItemName}"></p>
+
+			<button id="x" type="submit" th:value="${inventoryItem.id}"
+				name="inventoryItemId" th:formaction="@{delete-inventoryItem}">&times;</button>
+
+		</li>
+	</ul>
+</form>
+
+<h3 id="more-food">Add more food or go to recipes:</h3>
 
 
 

@@ -129,7 +129,13 @@ h2 {
     margin-right: 175px;
     margin-left: 175px;
  }
-      
+ 
+a {
+	text-decoration: none;
+	color: #465C8B;
+	font-size: 18px;
+  	list-style-type: none;
+}
 
 a:visited {
    color: black;
