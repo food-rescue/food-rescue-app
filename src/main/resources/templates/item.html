@@ -47,6 +47,7 @@
 	<div th:each="item: ${itemsModel}">
 		<h2 class="recipeName" th:text="${item.itemName}"></h2>
 		<img class="recipeImage" th:src = "${item.itemImage}">
+		
 
       
 
@@ -59,8 +60,7 @@
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close">&times;</span>
-    <p class="recipeName" th:text="${item.itemName}">Avocado : You can brush your avocado's flesh with lemon juice -- the citric acid in the lemon juice dramatically slows the browning process. Store in an airtight container for extra protection.
-</p>
+    <p class="tipsModal" th:text="${item.tip}"></p>
   </div>
 
 </div>
