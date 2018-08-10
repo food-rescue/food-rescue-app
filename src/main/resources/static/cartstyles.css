@@ -7,7 +7,6 @@
 }
 
 body {
-  /*background: rgba(255, 69, 0, 0.8);*/
   background-image: url("images/shopping-list.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -15,7 +14,7 @@ body {
 
 .grid-container {
   background: rgb(255, 255, 240, 0.6);
-  border: 1px solid #FFD700;
+  border: 1px solid #465c8b;
   border-radius: 0.6%;
   display: grid;
   grid-gap: 35px 70px;
@@ -40,7 +39,7 @@ h3 {
 .header {
   align-content: space-around;
   background-color: #93C178;
-  border: 5px ridge #000000;
+  box-shadow: 10px 10px 5px -5px rgba(60,78,119,0.71);
   padding: 15px;
   display: flex;
   font-family: 'Merienda', cursive, sans-serif;
