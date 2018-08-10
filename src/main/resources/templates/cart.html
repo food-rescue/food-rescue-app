@@ -2,10 +2,9 @@
 <html>
 
 <head>
-  <link rel="stylesheet" type="text/css" href="/css/cartstyles.css">
+  <link rel="stylesheet" type="text/css" href="cartstyles.css">
   <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300%7CRoboto" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href = "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -51,20 +50,10 @@
 
 		<h3>Kitchen Inventory</h3>
 		<ul>
-		<li th:each="inventoryItem : ${inventoryItemsModel}">
-            		<a th:href="@{/inventoryItem(id=${inventoryItem.id})}" th:text="${inventoryItem.inventoryItemName}"></a>  
-        </li>
-        </ul>	  
+		  <li th:each="inventoryItem : ${inventoryItemsModel}" th:text="${inventoryItem.inventoryItemName}"></li>
+    </ul>	  
 
 	</div>
-	
-	<button onclick="goBack()">Back to Recipe</button>
-
-	<script>
-	function goBack() {
-    	window.history.go(-2);
-	}
-	</script>
 
 	<script src = "./js/indexstyles.js"></script>
 

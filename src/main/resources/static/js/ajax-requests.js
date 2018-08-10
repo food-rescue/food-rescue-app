@@ -3,7 +3,6 @@ const addFoodInput = document.querySelector('.add-food input');
 const foodList = document.querySelector('.food-list ul');
 const clearInventoryButton = document.querySelector('.food-list button');
 
-
 const xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function(){
 	if(xhr.readyState===4 && xhr.status ===200){
@@ -37,9 +36,6 @@ function removeFoodList(){
 	xhr.open('POST', '/index/clear-inventory', true)	
 	xhr.send()
 }
-
-
-
 
 
 

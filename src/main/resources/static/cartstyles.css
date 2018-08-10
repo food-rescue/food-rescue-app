@@ -1,65 +1,74 @@
 *{
-  Line-height: 1.618em;
-  box-sizing: border-box;
+  line-height: 1.618em;
+  box-sizing: content-box;
   margin: 0;
   padding: 0;
   
 }
 
 body {
-  margin: 40px; 
-  background: linear-gradient(#465c8b, #f7ef6a);
+  /*background: rgba(255, 69, 0, 0.8);*/
+  background-image: url("images/shopping-list.jpg");
   background-repeat: no-repeat;
-    background-size: cover;
-    color: white;
-    transition: background-color .5s;
-
+  background-size: cover;
 }
 
 .grid-container {
+  background: rgb(255, 255, 240, 0.6);
+  border: 1px solid #FFD700;
+  border-radius: 0.6%;
   display: grid;
+  grid-gap: 35px 70px;
   grid-template-columns: auto auto;
   grid-template-rows: auto auto;
-  background-color: #2196F3;
+  margin: 2rem auto;
+  max-width: 94%;
   padding: 10px;
 }
+
 .grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
   font-size: 30px;
   text-align: center;
 }
 
+h3 {
+  font-size: 25px;
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans Condensed', sans-serif; 
+}
+
 .header {
-  display: flex;
-  grid-column: 1/-1;
-  justify-content: center; 
   align-content: space-around;
+  background-color: #93C178;
+  border: 5px ridge #000000;
+  padding: 15px;
+  display: flex;
   font-family: 'Merienda', cursive, sans-serif;
   font-size: 100px;
-  background-color: #93C178;  
+  grid-column: 1/-1;
+  justify-content: center; 
+}
+
+.inventory {
+  background: rgb(240, 248, 255, 0.7);
+  border: 7px double #FF4500;
+  border-radius: 20%;
+  padding: 15px;
+  width: 75%;
 }
 
 li
 {
-    list-style-type: none;
+  font-family: 'Open Sans Condensed', sans-serif; 
+  list-style-type: none;
 }
 
-.list-checkmarks {
-    padding-left:1.5rem;
-}
-
-.list-checkmarks li {
-    list-style-type:none;
-    padding-left:1rem;
-}
-
-.list-checkmarks li:before {
-  font-family: 'FontAwesome';
-  content: "\f00c";
-  margin:0 10px 0 -28px;
-  color: #17aa1c;
+.list {
+  background: rgb(240, 248, 255, 0.7);
+  border: 7px double #FF4500;
+  border-radius: 20%;
+  padding: 2px;
+  width: 75%;
 }
 
 .logo {
@@ -94,9 +103,8 @@ li
   transition: 0.3s;
 }
 
-.sidenav a:hover, /*.offcanvas a:focus*/ {
+.sidenav a:hover, .offcanvas a:focus {
   color: #f1f1f1;
-
 }
 
 .sidenav .closebtn {

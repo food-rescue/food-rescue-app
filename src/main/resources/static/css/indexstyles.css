@@ -1,5 +1,5 @@
 *{
-	Line-height: 1.618em;
+	line-height: 1.618em;
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
@@ -61,7 +61,7 @@ h2 {
 
 h3 {
 	font-size: 25px;
-	/*font-family: 'Roboto', sans-serif;*/
+	font-family: 'Roboto', sans-serif;
 	font-family: 'Open Sans Condensed', sans-serif;	
 }
 
@@ -255,7 +255,7 @@ button:hover {
   transition: 0.3s;
 }
 
-.sidenav a:hover, /*.offcanvas a:focus*/ {
+.sidenav a:hover, .offcanvas a:focus {
   color: #f1f1f1;
 
 }
@@ -273,10 +273,10 @@ button:hover {
   padding: 16px;
 }
 
-/*#main.open {
+#main.open {
   font-size: 30px;
   cursor: pointer;
-}*/
+}
 
 @mediascreen and (max-height: 450px) {
   .sidenav{padding-top: 15px;}
