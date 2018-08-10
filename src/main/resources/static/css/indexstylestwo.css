@@ -36,7 +36,8 @@ body {
     padding-top: 30px;
     padding-bottom: 40px;
     flex-direction: column;
-    color: #334366;        
+    color: #334366;   
+    grid-column: 1/-1;     
 }
 
 .header {
