@@ -23,7 +23,11 @@ body {
   grid-template-rows: auto auto auto auto auto;
   margin: 2rem auto; 
   width: 90%; 
+}
 
+.grid-item-recipe a:visited {
+   color: white;
+   text-decoration: none;
 }
 
 .grid-item {
@@ -87,7 +91,10 @@ h2 {
  	background-color:#ff4500;
  	margin-left: 350px; 
  	margin-right: 350px;
+}
 
+.footer a:visited {
+   color: black;
 }
 
 .fa {
@@ -106,6 +113,8 @@ h2 {
     color: white;
     margin: .1em;
 }
+
+
 
 
 .recipeImage{
@@ -142,9 +151,7 @@ a {
   	list-style-type: none;
 }
 
-a:visited {
-   color: black;
-}
+
 
 a:hover {
     color: #ff4500;
