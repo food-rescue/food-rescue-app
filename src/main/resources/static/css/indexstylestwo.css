@@ -178,17 +178,18 @@ h2 {
  }
 
  .recipeImage{
+ 	display:block;
   	border-radius: 50px;
  	border: 4px solid white;
  	padding:15px;
- 	max-width: 50%;
-  	height: auto;
-  	display:block;
-  	margin-left: auto;
- 	margin-right: auto;
+ 	position: relative;
+    width:  550px;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
+ 	
 
-  
   .itemsView{
 	font-size: 28px; 
     font-weight: bold;

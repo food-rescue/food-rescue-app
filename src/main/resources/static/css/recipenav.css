@@ -107,18 +107,18 @@ h2 {
     margin: .1em;
 }
 
-
 .recipeImage{
-  border-radius: 50px;
-  border: 4px solid white;
-  padding:15px;
-  max-width: 50%;
-  height: auto;
-  display:block;
-  margin-left: auto;
-  margin-right: auto;
+ 	display:block;
+  	border-radius: 50px;
+ 	border: 4px solid white;
+ 	padding:15px;
+ 	position: relative;
+    width:  550px;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
-
+ 	
 
 .recipeName {
     padding-top: 25px;	
@@ -248,3 +248,5 @@ a:hover {
 .recipes:hover .recipes-content {
     display: block;
 }
+
+
