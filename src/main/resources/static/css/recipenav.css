@@ -259,3 +259,17 @@ a:hover {
 .recipes:hover .recipes-content {
     display: block;
 }
+
+.icon {
+  background:url("/images/shopping-cart-button.png") top;
+  cursor:pointer;
+  border:none;
+  width:45px;
+  height:45px;
+  justify-content: center;
+  padding-bottom: 9px;
+
+
+}
+
+

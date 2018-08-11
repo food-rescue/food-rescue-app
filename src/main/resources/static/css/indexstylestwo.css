@@ -394,3 +394,11 @@ a:hover {
 	color: black; 
 }
 	
+.icon {
+  background:url("/images/shopping-cart-button.png") no-repeat;
+  cursor:pointer;
+  border:none;
+  width:100px;
+  height:100px;
+}
+
