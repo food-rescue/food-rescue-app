@@ -84,8 +84,9 @@ h2 {
  	background-color:#ff4500;
  	margin-left: 350px; 
  	margin-right: 350px;
-
 }
+
+
 
 .fa {
   padding: 0px;
@@ -95,15 +96,17 @@ h2 {
   text-decoration: none;
   margin: 5px 2px;
 }
+
 .fa:hover {
     opacity: 0.7;    
 }
+
+
 .fa-github {
 	background: #000;
 	color: white;
 	margin: .1em;
 }
-
 
 
  .allTags {
@@ -127,19 +130,13 @@ h2 {
     margin-top: 75px;
  }
 
-
-
  
-   #mealRecipe{
+  #mealRecipe{
     text-decoration:none;
-    color: #465C8B;
-    
+    color: #465C8B;    
  }
 
- 
- 
- 
- 
+   
  #recipesName {
 	padding-top: 20px;	
     padding-bottom: 20px;	
@@ -147,12 +144,6 @@ h2 {
 }
  
 
- 
- 
- 
- 
- 
- 
  .recipeInstructions {
     padding-top: 20px;	
     padding-bottom: 20px;	
@@ -209,10 +200,6 @@ h2 {
  }
  
  
- 
- 
- 
- 
   #tagMeal{
     margin-top: 75px;
     font-size: 50px;
@@ -245,14 +232,9 @@ h2 {
  
  
  
- 
- 
- 
- 
-
-a:visited {
+.recipes a:visited {
    color: white;
-     text-decoration: none;
+   text-decoration: none;
 }
 
 a:hover {
