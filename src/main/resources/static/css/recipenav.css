@@ -44,6 +44,10 @@ body {
 	background-color: #93C178;	
 }
 
+.goHome:hover {
+	 opacity: 0.3;
+}
+
 .recipes {
     /*background-color: #465C8B;*/
     padding-top: 30px;

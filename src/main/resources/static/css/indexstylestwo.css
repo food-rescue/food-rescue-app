@@ -74,6 +74,10 @@ h2 {
     margin: 0px 50px;
 }
 
+.goHome:hover {
+	 opacity: 0.3;
+}
+
 .footer { 
 	display:flex;
  	justify-content: center;
