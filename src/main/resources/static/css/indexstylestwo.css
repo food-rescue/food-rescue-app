@@ -174,14 +174,16 @@ h2 {
  }
 
  .recipeImage{
-  	border-radius: 50px;
- 	border: 4px solid white;
- 	padding:15px;
- 	max-width: 50%;
-  	height: auto;
+    justify-content: center;
+    border-radius: 50px;
+ 	  border: 4px solid white;
+ 	  padding:15px;
+ 	  max-width: 260%;
+    height: auto;
   	display:block;
   	margin-left: auto;
- 	margin-right: auto;
+ 	  margin-right: auto;
+    
 }
 
   
@@ -233,7 +235,7 @@ h2 {
  
  
 .recipes a:visited {
-   color: white;
+   color: black;
    text-decoration: none;
 }
 
@@ -353,46 +355,7 @@ a:hover {
     display: block;
 }
 
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
 
-/* Modal Content/Box */
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button */
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.tipsModal{
-	color: black; 
-}
 	
 .icon {
   background:url("/images/shopping-cart-button.png") no-repeat;
@@ -400,5 +363,51 @@ a:hover {
   border:none;
   width:100px;
   height:100px;
+}
+
+.textOverImage {
+  position: relative;
+  height: auto;
+  transition: 0.5s;
+  padding:10px;
+  max-width: 80%;
+  display:block;
+  margin-left: auto;
+  margin-right: 675px;
+  width: 200px;
+  height: 300px;
+}
+
+.textOverImage:hover {
+  background-size: 40%;
+}
+
+.textOverImage:after {
+  position: absolute;
+  top:90%;
+  bottom: 0;
+  left: 16px;
+  right:16px;
+  white-space: pre-wrap;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  padding: 0 8px;
+  content:attr(data-text);
+  transition: 0.5s;
+}
+
+.textOverImage:hover:after {
+  top:0;
+  /*padding:0;*/
+  background-color: rgba(0, 0, 0, 0.6);
+}
+ 
+.textOverImage:first-line {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.5em;
+
+
 }
 
