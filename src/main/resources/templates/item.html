@@ -41,30 +41,14 @@
  	<div id="main">
    		<span style="font-size: 30px;cursor:pointer;" onclick="openNav()">&#9776;</span>
  	</div> 	
-  		Food<img class = "logo" img src="/images/Logo.jpg"></img>Rescue
+  		Food<a class="goHome" href="/home"><img class="logo" img src="/images/Logo.jpg"></img></a>Rescue
   	</header>
 
 	<div th:each="item: ${itemsModel}">
 		<h2 class="recipeName" th:text="${item.itemName}"></h2>
-		<img class="recipeImage" th:src = "${item.itemImage}">
-		
-
-      
-
-   <!-- Trigger/Open The Modal -->
-<button id="myBtn">Food Freshness tips</button>
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p class="tipsModal" th:text="${item.tip}"></p>
-  </div>
-
-</div>
-
+		<div class="textOverImage"  img background:src= "${item.itemImage}" data-text="Freshness Tips"  th:data-text= "Freshness + ' ' + Tips + ' ' + ${item.tip}"> 
+      <img class="recipeImage" th:src = "${item.itemImage}">
+    </div>
 
 		<div th:each="recipe: ${item.recipes}">
 			<a th:href="@{/recipe(id=${recipe.id})}" th:text="${recipe.recipeName}"></a>
@@ -72,7 +56,7 @@
 		
 		<form method="Post">
 			<input name="id" type="hidden" th:value="${item.id}" />
-			<button  th:formaction="@{/add-item}"><img  src="/images/shopping-cart-button(2).png"></i></button>
+			<button class="icon" th:formaction="@{/add-item}"><i src="/images/shopping-cart-button.png"></i></button>
 		</form>
 
 	</div>

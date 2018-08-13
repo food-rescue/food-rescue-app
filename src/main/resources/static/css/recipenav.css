@@ -23,7 +23,11 @@ body {
   grid-template-rows: auto auto auto auto auto;
   margin: 2rem auto; 
   width: 90%; 
+}
 
+.grid-item-recipe a:visited {
+   color: white;
+   text-decoration: none;
 }
 
 .grid-item {
@@ -38,6 +42,10 @@ body {
 	font-family: 'Merienda', cursive, sans-serif;
 	font-size: 100px;
 	background-color: #93C178;	
+}
+
+.goHome:hover {
+	 opacity: 0.3;
 }
 
 .recipes {
@@ -87,7 +95,10 @@ h2 {
  	background-color:#ff4500;
  	margin-left: 350px; 
  	margin-right: 350px;
+}
 
+.footer a:visited {
+   color: black;
 }
 
 .fa {
@@ -106,6 +117,7 @@ h2 {
     color: white;
     margin: .1em;
 }
+
 
 .recipeImage{
  	display:block;
@@ -142,9 +154,7 @@ a {
   	list-style-type: none;
 }
 
-a:visited {
-   color: black;
-}
+
 
 a:hover {
     color: #ff4500;
@@ -247,6 +257,17 @@ a:hover {
 
 .recipes:hover .recipes-content {
     display: block;
+}
+
+
+.icon {
+  background:url("/images/shopping-cart-button.png") top;
+  cursor:pointer;
+  border:none;
+  width:45px;
+  height:45px;
+  justify-content: center;
+  padding-bottom: 9px;
 }
 
 
