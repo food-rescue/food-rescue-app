@@ -1,0 +1,108 @@
+*{
+  line-height: 1.618em;
+  box-sizing: content-box;
+  margin: 0;
+  padding: 0;
+  
+}
+
+body {
+  background-image: url("images/ingredients.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.grid-container {
+  display: grid;
+  grid-gap: 35px 70px;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  margin: 2rem auto;
+  max-width: 98%;
+  padding: 10px;
+}
+
+.grid-item {
+  font-size: 30px;
+  text-align: center;
+}
+
+h3 {
+  font-size: 25px;
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans Condensed', sans-serif; 
+}
+
+.header {
+  align-content: space-around;
+  background-color: #93C178;
+  box-shadow: 10px 10px 5px -5px rgba(60,78,119,0.71);
+  padding: 15px;
+  display: flex;
+  font-family: 'Merienda', cursive, sans-serif;
+  font-size: 100px;
+  grid-column: 1/-1;
+  justify-content: center; 
+}
+
+.inventory {
+  background-image: url("images/notepad.png");
+  padding: 15px;
+  width: 75%;
+}
+
+li
+{
+  font-family: 'Open Sans Condensed', sans-serif; 
+  list-style-type: none;
+}
+
+.list {
+  background-image: url("images/notepad.png");
+  padding: 2px;
+  width: 75%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 175px;
+  height: 175px;
+  margin: 0px 50px;
+}
+
+.sidenav {
+  position: fixed;
+  height: 100%;
+  width: 0;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #ff4500;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  opacity: .85;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #705151;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover, .offcanvas a:focus {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position:absolute;
+  top:0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
