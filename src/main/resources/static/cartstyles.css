@@ -14,9 +14,9 @@ body {
 
 .grid-container {
   display: grid;
-  grid-gap: 35px 70px;
+  grid-gap: 30px 20px;
   grid-template-columns: auto auto;
-  grid-template-rows: auto auto;
+  grid-template-rows: auto auto auto;
   margin: 2rem auto;
   max-width: 98%;
   padding: 10px;
@@ -47,8 +47,9 @@ h3 {
 
 .inventory {
   background-image: url("images/paper.png");
+  height: 50%;
   padding: 15px;
-  width: 75%;
+/*  width: 90%;*/
 }
 
 li
@@ -57,10 +58,16 @@ li
   list-style-type: none;
 }
 
+.lifetime {
+
+
+}
+
 .list {
-  background-image: url("images/paper.png");
+  background-image: url("images/yellow-paper.png");
+  height: 25%;
   padding: 2px;
-  width: 75%;
+/*  width: 90%;*/
 }
 
 .logo {
@@ -105,4 +112,8 @@ li
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
+}
+
+.time {
+  height: 1200px;
 }
