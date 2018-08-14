@@ -15,6 +15,8 @@
 <body>
 
 	<div class="grid-container">
+<!-- <marquee class="grid-item marquee" behavior = "scroll" direction ="right" scrollamount="15" loop="1"><img src = "/images/foodambo.png" style="width: 15%">
+  	</marquee>   -->
 
   	<header class="grid-item header" > 
 
@@ -22,14 +24,30 @@
    		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
    		<a href="http://localhost:8080/show-recipes">Recipes</a>
    		<a href="http://localhost:8080/cart">Shopping Cart</a>
+
+   		<div class="recipes">
+   			<button class="dropbtn">
+   		<a href="http://localhost:8080/show-recipes">Recipes </a> 		
+   			<!-- <button class="dropbtn"> -->
+   				<i class= "fa fa-caret-down"></i>
+   			</button>
+   			<div class="recipes-content">
+   				<a href="http://localhost:8080/tag?id=39">Breakfast</a>
+   				<a href="http://localhost:8080/tag?id=41">Lunch</a>
+   				<a href="http://localhost:8080/tag?id=40">Dinner</a>
+   				<a href="http://localhost:8080/tag?id=42">Snack</a>
+   			</div>
+   		</div>
+
+   		<a href="http://localhost:8080/cart">Shopping List</a>
    		<a href="#">Food Banks</a>
-   		<a href="https://www.webmd.com/diet/printable/portion-control-size-guide">Healthy Portions</a>
-   		<a href="#">About Us</a>
+   		<a href="https://www.choosemyplate.gov/">Healthy Portions</a>
+   
  	</div>
 
  	<div id="main">
    		<span style="font-size: 30px;cursor:pointer;" onclick="openNav()">&#9776;</span>
- 	</div> 		
+ 	</div> 	
 
   		Food<img class = "logo" img src="/images/Logo.jpg"></img>Rescue
   	</header>
@@ -38,34 +56,51 @@
   	</marquee>  	
 
   	<div class="grid-item about">
-  		<h1>Waste not, want not.</h1>
+  		<h1 id="waste-not">Waste not, want not.</h1>
   		<h3 id="aboutText1">The Food Rescue app is here to salvage the</h3>
   		<h3 id ="aboutText2"> food you bought,</h3>
   		 <h3 id="aboutText3">then forgot and</h3>
   		 <h3 id="aboutText4">almost left to rot... </h3>
         <h4>All you have to do is enter the food items you have in your refrigerator/pantry and Food Rescue does the rest of the work for you.</h4> 
-        <h4>A list of recipes will be generated using only the food items you have on hand so you don't have to make an extra trip to the grocery store AND you can save on food waste.</h4>
+        <h4>A list of recipes will be generated using only the food items you have on hand so you don't have to make an extra trip to the grocery store</h4>
+        <h4> AND you can save on food waste.</h4>
   	</div>
 
  	<div class="grid-item inventory">
       
+        <audio id="clickSound">
+  			<source src="/images/Woosh-Mark_DiAngelo-4778593.mp3" type="audio/mpeg">
+  		</audio>  
+        
         <section class="add-food">
         	<h2>Food Inventory</h2>
           	<h3>Enter your food items here:</h3>
          	 <input type="text"/>
-          	<button>Add Food</button> 
-        </section>        
+          	<button onclick="clickSound()" type="button">Add Food</button> 
+        </section> 
         
-       
+  
+        
         <section class="food-list"> 
-       		 <h2>Food on-hand:</h2>     
-          	<ul class="list-display list-checkmarks">
-            	<li th:each="inventoryItem : ${inventoryItemsModel}">
-            		<a th:href="@{/inventoryItem(id=${inventoryItem.id})}" th:text="${inventoryItem.inventoryItemName}"></a>  
+       		<h2>Food On-Hand:</h2>     
+       		<form method = "POST">
+  				<ul class="list-display list-checkmarks">
+            		<li th:each="inventoryItem : ${inventoryItemsModel}">
+            			<p th:text="${inventoryItem.inventoryItemName}"></p>        		
+						
+            			<button id="x" type="submit" th:value="${inventoryItem.id}" name="inventoryItemId" th:formaction="@{delete-inventoryItem}">&times;</button>
+            			
             	</li>	            	    
-          	</ul>            
-      	
-	 		<button id="clear"> Clear Food List</button>		
+          	</ul> 
+          	</form>
+          	
+            <article class="food-list-buttons">     
+      			<button id="clear-food"> Clear Food List</button>
+      			
+	 			<form method="POST">
+	  				<button id="find-recipes" th:formaction="@{/find-recipes}"> Find Recipes</button>
+				</form> 
+			</article> 	 				
 
          </section>   
      
