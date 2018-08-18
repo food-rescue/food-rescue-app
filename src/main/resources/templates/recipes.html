@@ -50,6 +50,51 @@
 		</h2>
 	</div>
 
+<div>
+<h2>Add A Recipe</h2>
+
+<form method="POST">
+
+<h3>Recipe Name</h3>
+
+<input type="text" name="recipeName"/>
+
+<h3>Recipe Photo</h3>
+
+<input type="file" name="imagePath" accept="*"/>
+
+
+<h3>Ingredients</h3>
+
+<input type="text" name="itemName1"/>
+<input type="text" name="itemName2"/>
+<input type="text" name="itemName3"/>
+
+
+
+
+<h3>Instruction</h3>
+
+<input type="text" name="instructions"/>
+
+<h4>Meal Type</h4>
+
+<select name="tagName">
+  <option value="Breakfast">Breakfast</option>
+  <option value="Lunch">Lunch</option>
+  <option value="Dinner">Dinner</option>
+  <option value="Snack">Snack</option>
+</select>
+
+<button th:formaction="@{/add-recipe}">Add Recipe</button>
+
+</form>
+
+
+
+</div>
+
+
 
 <footer class="grid-item footer">&copyFlexCode2018 <a href="https://github.com/food-rescue/food-rescue-app" class="fa fa-github-square"></a>
  		</footer>
