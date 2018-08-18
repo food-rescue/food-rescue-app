@@ -67,6 +67,7 @@ public class CartController {
 
 		cartRepo.save(lineItem);
 
-		return "redirect:/cart";
+		
+		return "redirect:/recipe?id=" + recipeId;
 	}
 }

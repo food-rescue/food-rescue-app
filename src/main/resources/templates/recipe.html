@@ -72,7 +72,7 @@
 		<h3>Preparation:</h3>
 		<p class="recipeInstructions" th:text="${recipe.instructions}"></p>
 
-		<h4>Tag:</h4>
+		<h4>Meal Type:</h4>
 		<div  class="recipeTag" th:each="tag: ${recipe.tag}">
 			<a  th:href="@{/tag(id=${tag.id})}" th:text="${recipe.tag.meal} "></a>
 		</div>
