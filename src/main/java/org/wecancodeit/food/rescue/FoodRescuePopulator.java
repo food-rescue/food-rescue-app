@@ -124,7 +124,7 @@ public class FoodRescuePopulator implements CommandLineRunner {
  		
  		Recipe croutons = new Recipe("Croutons", "1) Preheat oven to 350°F. " + 
  						"2) Remove crusts from stale bread slices. Brush bread on both sides with melted butter. Cut bread slices up into small cubes. Sprinkle with garlic salt (if desired). Arrange cubes on an ungreased cookie sheet. " + 
- 						"3) Bake at 350°F for 15 minutes or until browned. Let cool. Store croutons in a covered container or plastic bag. Serve in soups or salads.", "/images/croutons.jpg", snack, bread, butter, garlicSalt);
+ 						"3) Bake at 350°F for 15 minutes or until browned. Let cool. Store croutons in a covered container or plastic bag. Serve in soups or salads.", "/images/croutons.jpg", snack, bread);
  		recipeRepo.save(croutons);
  		
  		Recipe teriyakiChicken = new Recipe("Easy Teriyaki Chicken", "1) Season the chicken with a salt and pepper, to taste. Set aside. " + 
@@ -146,7 +146,7 @@ public class FoodRescuePopulator implements CommandLineRunner {
  		recipeRepo.save(hashbrownWaffle);
  		
  		Recipe grilledCheese = new Recipe("Grilled Cheese", "1) Preheat skillet over medium heat. 2) Generously butter one side of a slice of bread. 3) Place bread butter-side-down onto skillet bottom and add 1 slice of cheese. 4) Butter a second slice of bread on one side and place butter-side-up on top of sandwich. 5) Grill until lightly browned and flip over; continue grilling until cheese is melted. *Repeat with remaining 2 slices of bread, butter and slice of cheese.",
- 				"/images/grilled.jpg", lunch, bread, cheese, butter);
+ 				"/images/grilled.jpg", lunch, bread, cheese);
  		recipeRepo.save(grilledCheese);
  		
  		Recipe salmonBurger = new Recipe("Grilled Salmon Burgers with Avocado Salsa", "1) Skin and chop salmon fillet. " + 
@@ -164,7 +164,7 @@ public class FoodRescuePopulator implements CommandLineRunner {
  		Recipe friedBananas = new Recipe("Pan Fried Bananas", "1) Combine the cinnamon, butter and honey in a frying pan over medium-high heat until melted and combined. " + 
  				"2) Add the banana slices and cook for 4 minutes until the bottoms start to caramelize and turn golden brown. Adjust the temperature and cooking time as needed so that they don't burn. " + 
  				"3) Flip all the banana pieces and cook for another 4 minutes until the other side is golden brown. " + 
- 				"4) Serve immediately over ice cream, yogurt, pancakes or french toast.", "/images/bananas.jpg", snack, bananas, butter, cinnamon, honey);
+ 				"4) Serve immediately over ice cream, yogurt, pancakes or french toast.", "/images/bananas.jpg", snack, bananas, cinnamon);
  		recipeRepo.save(friedBananas);
  		
  		Recipe scrambledEggs = new Recipe("Scrambled Eggs", "1) Beat eggs, milk, salt and pepper in medium bowl until blended. " + 
