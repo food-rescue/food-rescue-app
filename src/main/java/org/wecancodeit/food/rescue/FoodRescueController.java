@@ -223,11 +223,17 @@ public class FoodRescueController {
 			item3 = new Item(itemName3, "/images/Logo.jpg", "Please visit www.cooksmarts.com for additional freshness information.");
 			item3 = itemRepo.save(item3);
 		}
+	
+		Recipe recipe = recipeRepo.findByRecipeNameIgnoreCaseLike(recipeName);
 		
-		Recipe recipe = new Recipe(recipeName, instructions, "/images/" + imagePath, tag, item1, item2, item3);
+		if(recipe == null) {
+			
+		recipe = new Recipe(recipeName, instructions, "/images/" + imagePath, tag, item1, item2, item3);
 		recipe = recipeRepo.save(recipe);
+		}
 		
-		return "redirect:/show-recipes";
+		Long recipeId = recipe.getId();
+		return "redirect:/recipe?id=" + recipeId;
 	}
 		
 }
