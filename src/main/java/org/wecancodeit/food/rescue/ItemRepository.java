@@ -8,4 +8,6 @@ public interface ItemRepository extends CrudRepository<Item, Long> {
 
 	Item findByItemName(String itemName);
 
+	Item findByItemNameIgnoreCaseLike(String itemName1);
+
 }

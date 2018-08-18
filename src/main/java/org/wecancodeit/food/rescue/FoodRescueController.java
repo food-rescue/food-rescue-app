@@ -200,6 +200,35 @@ public class FoodRescueController {
 		
 		return "redirect:/home";
 	}
+	
+	@RequestMapping("/add-recipe")
+	public String addRecipe(String recipeName, String instructions, String imagePath, String tagName, String itemName1, String itemName2, String itemName3) {
+		
+		Tag tag = tagRepo.findByMeal(tagName);
+		Item item1 = itemRepo.findByItemNameIgnoreCaseLike(itemName1);
+		Item item2 = itemRepo.findByItemNameIgnoreCaseLike(itemName2);
+		Item item3 = itemRepo.findByItemNameIgnoreCaseLike(itemName3);
+		
+		if(item1 == null) {
+			item1 = new Item(itemName1, "/images/Logo.jpg", "Please visit www.cooksmarts.com for additional freshness information.");
+			item1 = itemRepo.save(item1);
+		}
+		
+		if(item2 == null) {
+			item2 = new Item(itemName2, "/images/Logo.jpg", "Please visit www.cooksmarts.com for additional freshness information.");
+			item2 = itemRepo.save(item2);
+		}
+		
+		if(item3 == null) {
+			item3 = new Item(itemName3, "/images/Logo.jpg", "Please visit www.cooksmarts.com for additional freshness information.");
+			item3 = itemRepo.save(item3);
+		}
+		
+		Recipe recipe = new Recipe(recipeName, instructions, "/images/" + imagePath, tag, item1, item2, item3);
+		recipe = recipeRepo.save(recipe);
+		
+		return "redirect:/show-recipes";
+	}
 		
 }
 	
