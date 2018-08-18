@@ -14,6 +14,9 @@ public class CartController {
 
 	@Resource
 	private CartRepository cartRepo;
+	
+	@Resource
+	private InventoryRepository inventoryRepo;
 
 	@Resource
 	private ItemRepository itemRepo;
@@ -24,6 +27,7 @@ public class CartController {
 	@RequestMapping("/cart")
 	public String findAllCartItems(Model model) {
 		model.addAttribute("cartModel", cartRepo.findAll());
+		model.addAttribute("inventoryItemsModel", inventoryRepo.findAll());
 		return "cart";
 	}
 
