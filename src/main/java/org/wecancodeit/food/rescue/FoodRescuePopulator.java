@@ -112,17 +112,17 @@ public class FoodRescuePopulator implements CommandLineRunner {
 		tagRepo.save(snack);   
  		tagRepo.save(snack);   
    
- 		Recipe lettuceWrap = new Recipe("Chicken, Bacon, Avocado Ranch Lettuce Wrap", "1) Start by seasoning the chicken with salt and pepper, then grill them (you could do stovetop as well). " + 
- 				"2) Meanwhile, bake your bacon on a foil lined cookie sheet at 420°F. Start checking for doneness at 15 minutes but it will likely take closer to 20. " + 
- 				"3) I had used ends and pieces so they came already chopped, but if you use regular slab bacon crumble it up after it's cooked. " + 
- 				"4) When the chicken is done, cut it up into bite sized pieces and mix the cilantro in. " + 
- 				"5) Wash the lettuce, and carefully remove each leaf so that it creates a boat, or cup to put the yumminess in. " + 
- 				"6) Now set all your ingredients out so people can build their own lettuce wrap. Squeeze half a lime over the avocado, tomato, and chicken. " + 
- 				"7) Take the lettuce leaf, fill it with the bacon, avocado, tomato, and chicken. Then drizzle with ranch. " + 
- 				"8) Eat it like a taco and enjoy!", "/images/chicken.jpg", lunch, avocado, bacon, cilantro, chickenBreast, limes, ranchDressing, tomatoes);
+ 		Recipe lettuceWrap = new Recipe("Chicken, Bacon, Avocado Ranch Lettuce Wrap", "1) Start by seasoning the chicken with salt and pepper, then grill them (you could do stovetop as well).\r\n" + 
+ 				"<br>" + "2) Meanwhile, bake your bacon on a foil lined cookie sheet at 420°F. Start checking for doneness at 15 minutes but it will likely take closer to 20. " + 
+ 				"\n 3) I had used ends and pieces so they came already chopped, but if you use regular slab bacon crumble it up after it's cooked. " + 
+ 				"\n 4) When the chicken is done, cut it up into bite sized pieces and mix the cilantro in. " + 
+ 				"\n 5) Wash the lettuce, and carefully remove each leaf so that it creates a boat, or cup to put the yumminess in. " + 
+ 				"\n 6) Now set all your ingredients out so people can build their own lettuce wrap. Squeeze half a lime over the avocado, tomato, and chicken. " + 
+ 				"\n 7) Take the lettuce leaf, fill it with the bacon, avocado, tomato, and chicken. Then drizzle with ranch. " + 
+ 				"\n 8) Eat it like a taco and enjoy!", "/images/chicken.jpg", lunch, avocado, bacon, cilantro, chickenBreast, limes, ranchDressing, tomatoes);
  		recipeRepo.save(lettuceWrap);
  		
- 		Recipe croutons = new Recipe("Croutons", "1) Preheat oven to 350°F. " + 
+ 		Recipe croutons = new Recipe("Croutons", "1) Preheat oven to 350°F. " + "\n" +
  						"2) Remove crusts from stale bread slices. Brush bread on both sides with melted butter. Cut bread slices up into small cubes. Sprinkle with garlic salt (if desired). Arrange cubes on an ungreased cookie sheet. " + 
  						"3) Bake at 350°F for 15 minutes or until browned. Let cool. Store croutons in a covered container or plastic bag. Serve in soups or salads.", "/images/croutons.jpg", snack, bread);
  		recipeRepo.save(croutons);
@@ -183,6 +183,8 @@ public class FoodRescuePopulator implements CommandLineRunner {
 				"4) To assemble tacos, layer beef mixture, cheese, lettuce and tomatoes in each taco shell. Serve with salsa; top with sour cream.", "/images/tacos.jpg", dinner, groundBeef, onions, tortillas, tacoShells, chiliPowder, tomatoSauce);
 		recipeRepo.save(tacos);
 		
+		Recipe noMatches = new Recipe("No recipies found", "No instructions", "/images/none.jpg", breakfast, eggs);
+		recipeRepo.save(noMatches);
 	}
 
 }

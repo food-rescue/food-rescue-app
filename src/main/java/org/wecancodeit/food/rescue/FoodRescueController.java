@@ -27,7 +27,7 @@ public class FoodRescueController {
 
 	@Resource
 	InventoryRepository inventoryRepo;
-	
+
 	@Resource
 	CartRepository cartRepo;
 
@@ -127,8 +127,8 @@ public class FoodRescueController {
 		Collection<Recipe> completeRecipes = new HashSet<Recipe>();
 		for (Recipe recipe : recipes) {
 			Collection<Item> matchedItems = new HashSet<Item>();
+			Collection<Item> recipeItems = recipe.getItems();
 			for (InventoryItem inventoryItem : inventoryItems) {
-				Collection<Item> recipeItems = recipe.getItems();
 				for (Item item : recipeItems) {
 					if (inventoryItem.getInventoryItemName().equalsIgnoreCase(item.getItemName())) {
 						matchedItems.add(item);
@@ -138,6 +138,10 @@ public class FoodRescueController {
 					completeRecipes.add(recipe);
 				}
 			}
+			if (recipeItems.isEmpty()) {
+				Recipe noMatches = recipeRepo.findByRecipeNameIgnoreCaseLike("noMatches");
+				completeRecipes.add(noMatches);
+			}
 		}
 		model.addAttribute("completeRecipesModel", completeRecipes);
 
@@ -145,8 +149,8 @@ public class FoodRescueController {
 			for (Recipe recipe : recipes) {
 				Collection<Item> recipeItems = recipe.getItems();
 
-				for(Item item: recipeItems) {
-					if(inventoryItem.getInventoryItemName().equalsIgnoreCase(item.getItemName())) {
+				for (Item item : recipeItems) {
+					if (inventoryItem.getInventoryItemName().equalsIgnoreCase(item.getItemName())) {
 
 						matchedRecipes.add(recipe);
 					}
@@ -158,86 +162,84 @@ public class FoodRescueController {
 
 		return "find-recipes";
 	}
-	
-	
-	
-	//Add food inventory with Ajax
-		@RequestMapping(path = "/index/add-food/{inventoryItemName}", method = RequestMethod.POST)
-		public String addInventoryItem(@PathVariable String inventoryItemName, Model model) {
-			InventoryItem foodToAdd = inventoryRepo.findByInventoryItemNameIgnoreCaseLike(inventoryItemName);
-			if(foodToAdd == null) {
-				foodToAdd = new InventoryItem(inventoryItemName);
-				inventoryRepo.save(foodToAdd);
-			}	
-			
-			model.addAttribute("inventoryItemsModel", inventoryRepo.findAll());		
-			return "partials/food-list-added";
+
+	// Add food inventory with Ajax
+	@RequestMapping(path = "/index/add-food/{inventoryItemName}", method = RequestMethod.POST)
+	public String addInventoryItem(@PathVariable String inventoryItemName, Model model) {
+		InventoryItem foodToAdd = inventoryRepo.findByInventoryItemNameIgnoreCaseLike(inventoryItemName);
+		if (foodToAdd == null) {
+			foodToAdd = new InventoryItem(inventoryItemName);
+			inventoryRepo.save(foodToAdd);
 		}
-		
+
+		model.addAttribute("inventoryItemsModel", inventoryRepo.findAll());
+		return "partials/food-list-added";
+	}
+
 	@RequestMapping(path = "/index/clear-inventory", method = RequestMethod.POST)
 	public String deleteAllInventoryItems(Model model) {
-	
+
 		inventoryRepo.deleteAll();
 		model.addAttribute("inventoryItemsModel", inventoryRepo.findAll());
-		
+
 		return "partials/food-list-cleared";
 	}
-	
+
 	@RequestMapping(path = "/index/show-inventory", method = RequestMethod.POST)
 	public String showAllInventoryItems(Model model) {
-		
-			model.addAttribute("inventoryItemsModel", inventoryRepo.findAll());
-		
-			return "partials/food-list-added";
+
+		model.addAttribute("inventoryItemsModel", inventoryRepo.findAll());
+
+		return "partials/food-list-added";
 	}
-	
+
 	@RequestMapping("/delete-inventoryItem")
 	public String deleteInventoryItem(@RequestParam Long inventoryItemId) {
-		
+
 		Optional<InventoryItem> inventoryItemResult = inventoryRepo.findById(inventoryItemId);
 		InventoryItem inventoryItem = inventoryItemResult.get();
 		inventoryRepo.delete(inventoryItem);
-		
+
 		return "redirect:/home";
 	}
-	
+
 	@RequestMapping("/add-recipe")
-	public String addRecipe(String recipeName, String instructions, String imagePath, String tagName, String itemName1, String itemName2, String itemName3) {
-		
+	public String addRecipe(String recipeName, String instructions, String imagePath, String tagName, String itemName1,
+			String itemName2, String itemName3) {
+
 		Tag tag = tagRepo.findByMeal(tagName);
 		Item item1 = itemRepo.findByItemNameIgnoreCaseLike(itemName1);
 		Item item2 = itemRepo.findByItemNameIgnoreCaseLike(itemName2);
 		Item item3 = itemRepo.findByItemNameIgnoreCaseLike(itemName3);
-		
-		if(item1 == null) {
-			item1 = new Item(itemName1, "/images/Logo.jpg", "Please visit www.cooksmarts.com for additional freshness information.");
+
+		if (item1 == null) {
+			item1 = new Item(itemName1, "/images/Logo.jpg",
+					"Please visit www.cooksmarts.com for additional freshness information.");
 			item1 = itemRepo.save(item1);
 		}
-		
-		if(item2 == null) {
-			item2 = new Item(itemName2, "/images/Logo.jpg", "Please visit www.cooksmarts.com for additional freshness information.");
+
+		if (item2 == null) {
+			item2 = new Item(itemName2, "/images/Logo.jpg",
+					"Please visit www.cooksmarts.com for additional freshness information.");
 			item2 = itemRepo.save(item2);
 		}
-		
-		if(item3 == null) {
-			item3 = new Item(itemName3, "/images/Logo.jpg", "Please visit www.cooksmarts.com for additional freshness information.");
+
+		if (item3 == null) {
+			item3 = new Item(itemName3, "/images/Logo.jpg",
+					"Please visit www.cooksmarts.com for additional freshness information.");
 			item3 = itemRepo.save(item3);
 		}
-	
+
 		Recipe recipe = recipeRepo.findByRecipeNameIgnoreCaseLike(recipeName);
-		
-		if(recipe == null) {
-			
-		recipe = new Recipe(recipeName, instructions, "/images/" + imagePath, tag, item1, item2, item3);
-		recipe = recipeRepo.save(recipe);
+
+		if (recipe == null) {
+
+			recipe = new Recipe(recipeName, instructions, "/images/" + imagePath, tag, item1, item2, item3);
+			recipe = recipeRepo.save(recipe);
 		}
-		
+
 		Long recipeId = recipe.getId();
 		return "redirect:/recipe?id=" + recipeId;
 	}
-		
+
 }
-	
-
-
-
