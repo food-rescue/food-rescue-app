@@ -138,10 +138,7 @@ public class FoodRescueController {
 					completeRecipes.add(recipe);
 				}
 			}
-			if (recipeItems.isEmpty()) {
-				Recipe noMatches = recipeRepo.findByRecipeNameIgnoreCaseLike("noMatches");
-				completeRecipes.add(noMatches);
-			}
+			
 		}
 		model.addAttribute("completeRecipesModel", completeRecipes);
 
