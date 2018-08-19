@@ -20,32 +20,13 @@ body {
   padding: 30px;
   margin: 2rem auto; 
   width: 90%; 
+  font-family: 'Open Sans Condensed', sans-serif; 
 }
 
 .grid-item-tags {
     box-shadow: 10px 10px 5px -5px rgba(60,78,119,0.71);    
 }
 
-.recipes-list {
-    /*background-color: #465C8B;*/
-    padding-top: 30px;
-    padding-bottom: 40px;
-    flex-direction: column;
-    color: #334366;   
-    grid-column: 1/-1;  
-    text-align: center; 
-    font-family: 'Open Sans Condensed', sans-serif;   
-    border: double 5px; 
-}
-
-.recipes-list a {
-	text-decoration: none; 
-	color: white;
-}
-
-.recipes-list a: visited {
-	color: #465c8b; 
-}
 
 .header {
     display: flex;
@@ -67,51 +48,21 @@ h1 {
 h2 {
     font-family: 'Merienda', cursive, sans-serif;
     font-size: 30px;
-     color:white;
+    color:white;
     text-align: center
-   
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 175px;
-    height: 175px;
-    margin: 0px 50px;
+h3 {
+	color:white;
+	font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 30px;    
 }
 
-.goHome:hover {
-     opacity: 0.3;
+h4 {
+	color:white;
+	font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 25px;    
 }
-
-.footer { 
-    display:flex;
-    justify-content: center;
-    background-color:#ff4500;
-    margin-left: 350px; 
-    margin-right: 350px;
-}
-
-.fa {
-  padding: 0px;
-  font-size: 30px;
-  width: 50px;
-  text-align: center;
-  text-decoration: none;
-  margin: 5px 2px;
-}
-
-.fa:hover {
-    opacity: 0.7;    
-}
-
-.fa-github {
-    background: #000;
-    color: white;
-    margin: .1em;
-}
-
 
 .add-recipe-form {
 	display: flex;
@@ -142,19 +93,13 @@ h2 {
     color: white;
   }
   
-.choose-file-button {
-	color:#465C8B;
-	font-family: 'Open Sans Condensed', sans-serif; 
-	font-size: .8125em;	
-	color: #ff4500;
- }
+
 
 .add-recipes-drop-down {
 	color:#465C8B;
 	font-family: 'Open Sans Condensed', sans-serif; 
 	font-size: .8125em;	
 }
-
 
  .allTags {
     background-color: #465C8B;
@@ -166,30 +111,85 @@ h2 {
     margin-top: 100px;
     margin-bottom: 175px;
     text-decoration: none;
-    border-radius: 25px;       
+    border-radius: 25px;     
  }
  
- .allTags a {
- text-decoration:none;
+ .allTags a { 
+ 	text-decoration:none;
  }
  
   .allTagsTitle {
     margin-top: 75px;
  }
  
-  #mealRecipe{
+ .choose-file-button {
+	color:#465C8B;
+	font-family: 'Open Sans Condensed', sans-serif; 
+	font-size: .8125em;	
+	color: #ff4500;
+ }
+ 
+
+.fa {
+  padding: 0px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa:hover {
+    opacity: 0.7;    
+}
+
+.fa-github {
+    background: #000;
+    color: white;
+    margin: .1em;
+}
+
+.footer { 
+    display:flex;
+    justify-content: center;
+    background-color:#ff4500;
+    margin-left: 350px; 
+    margin-right: 350px;
+}
+
+.goHome:hover {
+     opacity: 0.3;
+}
+
+.itemsView{
+    font-size: 28px; 
+    font-weight: bold;
+    margin-left:725px;
+    padding: 14px 25px;
+    margin-bottom:25px;
+    display: inline-block;
+    color:#465C8B;
+ }
+  
+.itemsView:hover{
+     color: #ff4500;
+ }
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 175px;
+    height: 175px;
+    margin: 0px 50px;
+}
+
+
+ #mealRecipe {
     text-decoration:none;
     color: #465C8B;    
  }
    
- #recipesName {
-    padding-top: 20px;  
-    padding-bottom: 20px;   
-    color: #465C8B; 
-  }
-  
- 
- 
  .recipeInstructions {
     padding-top: 20px;  
     padding-bottom: 20px;   
@@ -198,9 +198,38 @@ h2 {
     font-size: 18px;
     margin-right: 175px;
     margin-left: 175px;
+   	font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 25px;  
  }
  
-  .recipesView{
+ .recipes-list {
+    /*background-color: #465C8B;*/
+    padding-top: 30px;
+    padding-bottom: 40px;
+    flex-direction: column;
+    color: #334366;   
+    grid-column: 1/-1;  
+    text-align: center; 
+    font-family: 'Open Sans Condensed', sans-serif;   
+    border: double 5px; 
+}
+
+.recipes-list a {
+	text-decoration: none; 
+	color: white;
+}
+
+.recipes-list a: visited {
+	color: #465c8b; 
+}
+ 
+ #recipesName {
+    padding-top: 20px;  
+    padding-bottom: 20px;   
+    color: #465C8B; 
+  }
+  
+  .recipesView {
     font-size: 28px; 
     font-weight: bold;
     margin-left:725px;
@@ -210,7 +239,7 @@ h2 {
     color:#465C8B;
  }
  
-  .recipesView:hover{
+ .recipesView:hover{
      color: #ff4500;
  }
  
@@ -219,10 +248,11 @@ h2 {
     padding-bottom: 15px; 
  }
  
+ 
  .recipeImage{
-      display:block;
+    display:block;
     border-radius: 50px;
-      border: 4px solid white;
+    border: 4px solid white;
     padding:15px;
     position: relative;
     width:  450px;
@@ -231,22 +261,63 @@ h2 {
     margin-right: auto;
     justify-content: center;
 }
+
+.recipeTag  {
+	font-size: 20px;
+	color:#465C8B;
+}
+
+
+.recipes {
+    float: left;
+    overflow: hidden;
+}
+
+.recipes .dropbtn {
+    font-size: 16px;    
+    border: none;
+    outline: none;
+    color: white;
+    padding: 8px 8px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.recipes-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.recipes-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.recipes-content a:hover {
+    background-color: #ddd;
+}
+
+.recipes:hover .recipes-content {
+    display: block;
+}
+
+.recipes a:visited {
+   color: black;
+   text-decoration: none;
+}
     
-  .itemsView{
-    font-size: 28px; 
-    font-weight: bold;
-    margin-left:725px;
-    padding: 14px 25px;
-    margin-bottom:25px;
-    display: inline-block;
-    color:#465C8B;
- }
-  
-  .itemsView:hover{
-     color: #ff4500;
- }
+
  
-   #tagMeal{
+ #tagMeal{
     margin-top: 75px;
     font-size: 50px;
  }
@@ -276,14 +347,11 @@ h2 {
      color: #ff4500;
  }
  
- .recipes a:visited {
-   color: black;
-   text-decoration: none;
-}
+ 
 
 a:hover {
-    color: #ff4500;
-      text-decoration: none;
+   color: #ff4500;
+   text-decoration: none;
    cursor: pointer;
       
 }
@@ -345,51 +413,13 @@ a:hover {
   .sidenav a{font-size: 18px;}
 }
 
-.recipes {
-    float: left;
-    overflow: hidden;
-}
 
-.recipes .dropbtn {
-    font-size: 16px;    
-    border: none;
-    outline: none;
-    color: white;
-    padding: 8px 8px;
-    background-color: inherit;
-    font-family: inherit;
-    margin: 0;
-}
 
 .navbar a:hover, .recipes:hover .dropbtn {
     background-color: red;
 }
 
-.recipes-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
 
-.recipes-content a {
-    float: none;
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}
-
-.recipes-content a:hover {
-    background-color: #ddd;
-}
-
-.recipes:hover .recipes-content {
-    display: block;
-}
     
 .icon {
   background:url("/images/shopping-cart-button.png") no-repeat;
