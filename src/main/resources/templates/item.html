@@ -51,8 +51,8 @@
       <img class="recipeImage" th:src = "${item.itemImage}">
     </div>
 
-		<div th:each="recipe: ${item.recipes}">
-			<a th:href="@{/recipe(id=${recipe.id})}" th:text="${recipe.recipeName}"></a>
+		<div  th:each="recipe: ${item.recipes}">
+			<a class="item-recipes-list" th:href="@{/recipe(id=${recipe.id})}" th:text="${recipe.recipeName}"></a>
 		</div>
 		
 		<form method="Post">
