@@ -182,9 +182,6 @@ public class FoodRescuePopulator implements CommandLineRunner {
 				"3) Meanwhile, place taco shells on ungreased cookie sheet. Heat at 250°F. for 5 minutes. " + 
 				"4) To assemble tacos, layer beef mixture, cheese, lettuce and tomatoes in each taco shell. Serve with salsa; top with sour cream.", "/images/tacos.jpg", dinner, groundBeef, onions, tortillas, tacoShells, chiliPowder, tomatoSauce);
 		recipeRepo.save(tacos);
-		
-		Recipe noMatches = new Recipe("No recipies found", "No instructions", "/images/none.jpg", breakfast, eggs);
-		recipeRepo.save(noMatches);
 	}
 
 }
