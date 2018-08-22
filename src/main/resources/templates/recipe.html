@@ -5,91 +5,113 @@
 <head>
 
 <title>A Single Recipe</title>
- <link rel="stylesheet" type="text/css" href="/css/recipenav.css">
-  <link rel="stylesheet" type="text/css" href="/css/indexstylestwo.css">
- <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
- <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300%7CRoboto" rel="stylesheet">
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
- <link href = "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="/css/recipenav.css">
+<link rel="stylesheet" type="text/css" href="/css/indexstylestwo.css">
+<link href="https://fonts.googleapis.com/css?family=Merienda"
+	rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300%7CRoboto"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-	<title>A Single Recipe</title>
+<title>A Single Recipe</title>
 </head>
 <body>
 	<div class="grid-container">
 
-	<header class="grid-item header" > 
+		<header class="grid-item header">
 
-		<div id="mySidenav" class="sidenav">
-   		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-   		
-   		<div class="recipes">
-   			<button class="dropbtn">
-   		<a href="http://localhost:8080/show-recipes">Recipes </a> 		
-   			<!-- <button class="dropbtn"> -->
-   				<i class= "fa fa-caret-down"></i>
-   			</button>
-   			<div class="recipes-content">
-   				<a href="http://localhost:8080/tag?id=39">Breakfast</a>
-   				<a href="http://localhost:8080/tag?id=41">Lunch</a>
-   				<a href="http://localhost:8080/tag?id=40">Dinner</a>
-   				<a href="http://localhost:8080/tag?id=42">Snack</a>
-   				<a href="http://localhost:8080/show-recipes">All Recipes</a>
-   			</div>
-   		</div>
+			<div id="mySidenav" class="sidenav">
+				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
-   		<a href="http://localhost:8080/cart">Shopping List</a>
-   		<a href="https://www.greaterclevelandfoodbank.org/">Food Banks</a>
-   		<a href="https://www.choosemyplate.gov/">Healthy Portions</a>
-   		<a href="http://localhost:8080/home">Home</a>
- 	</div>
+				<div class="recipes">
+					<button class="dropbtn">
+						<a href="http://localhost:8080/show-recipes">Recipes </a>
+						<!-- <button class="dropbtn"> -->
+						<i class="fa fa-caret-down"></i>
+					</button>
+					<div class="recipes-content">
+						<a href="http://localhost:8080/tag?id=39">Breakfast</a> <a
+							href="http://localhost:8080/tag?id=41">Lunch</a> <a
+							href="http://localhost:8080/tag?id=40">Dinner</a> <a
+							href="http://localhost:8080/tag?id=42">Snack</a> <a
+							href="http://localhost:8080/show-recipes">All Recipes</a>
+					</div>
+				</div>
 
- 	<div id="main">
-   		<span style="font-size: 30px;cursor:pointer;" onclick="openNav()">&#9776;</span>
- 	</div> 	
+				<a href="http://localhost:8080/cart">Shopping List</a> <a
+					href="https://www.greaterclevelandfoodbank.org/">Food Banks</a> <a
+					href="https://www.choosemyplate.gov/">Healthy Portions</a> <a
+					href="http://localhost:8080/home">Home</a>
+			</div>
 
-  		Food<a class="goHome" href="/home"><img class="logo" img src="/images/Logo.jpg"></img></a>Rescue
-  	</header>
-  	
-<div class="grid-item-recipe">
-	<div th:each="recipe: ${recipesModel}">
-    
-		<h2 th:text="${recipe.recipeName}"></h2>
-		<img class="recipeImage" th:src = "${recipe.image}">
+			<div id="main">
+				<span style="font-size: 30px; cursor: pointer;" onclick="openNav()">&#9776;</span>
+			</div>
 
-		<h3>Ingredients: (click on shopping cart to add to shopping list)</h3>
+			Food<a class="goHome" href="/home"><img class="logo" img
+				src="/images/Logo.jpg"></img></a>Rescue
+		</header>
 
-		<form method="POST">
-			<input name="recipeId" type="hidden" th:value="${recipe.id}" />
-			<ul class="recipe-items">
-				<li th:each="item: ${recipe.items}">
-				<a	th:href="@{/item(id=${item.id})}" th:text="${item.itemName}"></a> <!-- <span th:text="${item.itemName}"></span> -->
 
-					<button onClick="if(!confirm('Add this item to your shopping list?')){return false;}" class="icon" id="add" name="itemId" th:value="${item.id}"
-					th:formaction="@{add-item-to-cart-button}"><i src="/images/shopping-cart-button.png"></i></button>
-			</ul>
-		</form>
+		<div class="grid-item-recipe" th:each="recipe: ${recipesModel}">
 
-		<h3>Preparation:</h3>
-		<p class="recipeInstructions" th:text="${recipe.instructions}"></p>
+			<div class="recipe-title">
+				<h2 th:text="${recipe.recipeName}"></h2>
+				<img class="recipeImage" th:src="${recipe.image}">
+			</div>
 
-		<h4>Meal Type:</h4>
-		<div th:each="tag: ${recipe.tag}">
-			<a class="recipeTag" th:href="@{/tag(id=${tag.id})}" th:text="${recipe.tag.meal} "></a>
+			<div class="ingredients-list">
+				<h3>Ingredients:</h3>
+				<h5>(click on shopping cart to add to shopping list)</h5>
+
+				<form method="POST">
+					<input name="recipeId" type="hidden" th:value="${recipe.id}" />
+					<ul>
+						<li class="recipe-items" th:each="item: ${recipe.items}"><a
+							th:href="@{/item(id=${item.id})}" th:text="${item.itemName}"></a>
+							<!-- <span th:text="${item.itemName}"></span> -->
+
+							<button
+								onClick="if(!confirm('Add this item to your shopping list?')){return false;}"
+								class="icon" id="add" name="itemId" th:value="${item.id}"
+								th:formaction="@{add-item-to-cart-button}">
+								<i src="/images/shopping-cart-button.png"></i>
+							</button>
+					</ul>
+				</form>
+			</div>
+
+			<div class="recipeInstructions">
+				<h3>Preparation:</h3>
+				<p th:text="${recipe.instructions}"></p>
+			</div>
+
+			<div class="meal-type">
+				<h4>Meal Type:</h4>
+				<div th:each="tag: ${recipe.tag}">
+					<a class="recipeTag" th:href="@{/tag(id=${tag.id})}"
+						th:text="${recipe.tag.meal} "></a>
+				</div>
+			</div>
 		</div>
 
+		<a class="recipesView" href="http://localhost:8080/show-recipes">Back to Recipes</a>
+
+
+		<footer class="grid-item footer">
+			&copyFlexCode2018 <a
+				href="https://github.com/food-rescue/food-rescue-app"
+				class="fa fa-github-square"></a>
+		</footer>
 
 	</div>
+	<!-- grid-container -->
 
-
-<a class="recipesView" href="http://localhost:8080/show-recipes">Back to Recipes View</a>
-
-
-<footer class="grid-item footer">&copyFlexCode2018 <a href="https://github.com/food-rescue/food-rescue-app" class="fa fa-github-square"></a>
- 		</footer>
-</div>
-</div> <!-- grid-container -->
-
-<script src = "./js/indexstyles.js"></script>
+	<script src="./js/indexstyles.js"></script>
 
 </body>
 </html>
